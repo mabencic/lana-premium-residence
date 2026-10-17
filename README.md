@@ -4,7 +4,14 @@ Statična višejezična stranica s CMS-om (Decap CMS). Prijatelj sadržaj uređu
 
 ## Jezici
 
-Hrvatski je glavni jezik i nalazi se na početnoj adresi (`/`). Ostali jezici su na `/en/` (engleski), `/de/` (njemački) i `/it/` (talijanski), a u zaglavlju je izbornik za promjenu jezika. Posjetitelji ne bivaju automatski preusmjereni, jezik biraju sami.
+Hrvatski je glavni jezik i nalazi se na početnoj adresi (`/`). Ostali jezici su na `/en/` (engleski), `/de/` (njemački) i `/it/` (talijanski), a u zaglavlju je izbornik za promjenu jezika. Na početnoj adresi (`/`) posjetitelj se automatski preusmjerava na svoj jezik (datoteka `functions/index.js`):
+
+1. ako je jezik već ručno odabrao u izborniku, pamti se taj odabir,
+2. inače se gleda jezik preglednika (hrvatski, engleski, njemački, talijanski),
+3. ako je preglednik na engleskom, a posjetitelj dolazi iz Njemačke, Austrije, Švicarske ili Italije, dobiva njemački odnosno talijanski,
+4. ako preglednik ne javlja jezik, odlučuje država posjetitelja, a za sve ostalo je engleski.
+
+Tražilice (Google i ostali) se ne preusmjeravaju, pa uvijek vide hrvatsku stranicu i oznake `hreflang` za ostale jezike. Izbornik za jezik uvijek ostaje vidljiv.
 
 U CMS-u se tekstovi za sva četiri jezika uređuju na istom mjestu: svaka stavka ima blokove Hrvatski, English, Deutsch i Italiano. Hrvatski je obavezan. Ako neko polje u drugom jeziku ostane prazno, na stranici se prikaže hrvatski tekst. Fotografije se biraju samo jednom.
 
@@ -21,6 +28,7 @@ Tekstovi sučelja (izbornik, gumbi, obrazac) nalaze se u datoteci `i18n.js`.
 - `i18n.js` popis jezika i tekstovi sučelja
 - `admin/` CMS (`config.yml` je generiran, vidi `tools/make-cms-config.js`)
 - `tools/make-cms-config.js` generira `admin/config.yml`. Ako mijenjate polja u CMS-u, mijenjate ovu datoteku i pokrenete `node tools/make-cms-config.js`.
+- `functions/index.js` automatski izbor jezika na početnoj adresi
 - `functions/api/` mali dio koji omogućuje prijavu u CMS preko GitHuba
 
 ## Postavljanje, korak po korak

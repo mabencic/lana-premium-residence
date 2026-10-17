@@ -263,6 +263,12 @@ function renderPage(lang) {
       var wa = ${js(waNumber)};
       var m = ${js({ ...t.mail, siteName: site.name })};
       var channel = 'mail';
+      // Zapamti ručni odabir jezika da ga automatski izbor ne prebriše.
+      document.querySelectorAll('.lang a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          try { document.cookie = 'lang=' + a.getAttribute('hreflang') + '; path=/; max-age=31536000; SameSite=Lax'; } catch (e) {}
+        });
+      });
       form.querySelectorAll('button').forEach(function (b) {
         b.addEventListener('click', function () { channel = b.getAttribute('data-channel'); });
       });
