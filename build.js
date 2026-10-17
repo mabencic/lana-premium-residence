@@ -151,6 +151,7 @@ function renderPage(lang) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/vendor/flatpickr/flatpickr.min.css">
   <link rel="stylesheet" href="/css/style.css">
   <script type="application/ld+json">${js(jsonLd)}</script>
   <script type="application/ld+json">${js(faqLd)}</script>
@@ -236,10 +237,7 @@ function renderPage(lang) {
       </div>
       <form id="enquiry" class="form" novalidate>
         <label>${esc(t.form.name)}<input name="name" autocomplete="name" required></label>
-        <div class="row">
-          <label>${esc(t.form.arrival)}<input type="date" name="arrival"></label>
-          <label>${esc(t.form.departure)}<input type="date" name="departure"></label>
-        </div>
+        <label>${esc(t.form.dates)}<input name="dates" id="dates" autocomplete="off" inputmode="none" placeholder="${esc(t.form.datesPlaceholder)}"></label>
         <label>${esc(t.form.guests)}<input type="number" name="guests" min="1" max="3" value="2"></label>
         <label>${esc(t.form.message)}<textarea name="message" rows="4"></textarea></label>
         <div class="actions">
@@ -256,9 +254,22 @@ function renderPage(lang) {
     <p>${esc(site.address)}</p>
   </footer>
 
+  <script src="/vendor/flatpickr/flatpickr.min.js"></script>
+  ${current.code !== 'en' ? `<script src="/vendor/flatpickr/l10n/${current.code}.js"></script>` : ''}
   <script>
     (function () {
       var form = document.getElementById('enquiry');
+      var picker = null;
+      if (window.flatpickr) {
+        picker = flatpickr('#dates', {
+          mode: 'range',
+          dateFormat: 'd.m.Y',
+          minDate: 'today',
+          showMonths: window.innerWidth >= 700 ? 2 : 1,
+          disableMobile: true,
+          locale: Object.assign({}, (flatpickr.l10ns[${js(current.code)}] || flatpickr.l10ns.default), { rangeSeparator: ' \u2013 ', firstDayOfWeek: 1 })
+        });
+      }
       var email = ${js(site.email)};
       var wa = ${js(waNumber)};
       var m = ${js({ ...t.mail, siteName: site.name })};
@@ -278,8 +289,8 @@ function renderPage(lang) {
         var text = [
           m.title + ' ' + m.siteName,
           m.name + ': ' + (d.get('name') || ''),
-          m.arrival + ': ' + (d.get('arrival') || ''),
-          m.departure + ': ' + (d.get('departure') || ''),
+          m.arrival + ': ' + (picker && picker.selectedDates[0] ? picker.formatDate(picker.selectedDates[0], 'd.m.Y') : ''),
+          m.departure + ': ' + (picker && picker.selectedDates[1] ? picker.formatDate(picker.selectedDates[1], 'd.m.Y') : ''),
           m.guests + ': ' + (d.get('guests') || ''),
           '',
           d.get('message') || ''
@@ -301,7 +312,7 @@ function renderPage(lang) {
 fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(dist, { recursive: true });
 
-for (const dir of ['css', 'images', 'admin']) {
+for (const dir of ['css', 'images', 'admin', 'vendor']) {
   const src = path.join(root, dir);
   if (fs.existsSync(src)) fs.cpSync(src, path.join(dist, dir), { recursive: true });
 }

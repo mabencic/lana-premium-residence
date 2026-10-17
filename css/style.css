@@ -185,3 +185,13 @@ details p { margin: .75rem 0 0; color: var(--muted); }
   html { scroll-behavior: auto; }
   * { transition: none !important; }
 }
+
+/* Odabir datuma (flatpickr) u bojama stranice */
+.flatpickr-calendar { font-family: var(--sans); border-radius: 1rem; box-shadow: 0 20px 50px -20px rgba(12,50,56,.4); }
+.flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange,
+.flatpickr-day.selected:hover, .flatpickr-day.startRange:hover, .flatpickr-day.endRange:hover {
+  background: var(--sea); border-color: var(--sea); color: #fff;
+}
+.flatpickr-day.inRange, .flatpickr-day.inRange:hover { background: #dcecee; border-color: #dcecee; box-shadow: -5px 0 0 #dcecee, 5px 0 0 #dcecee; }
+.flatpickr-day.today { border-color: var(--sun); }
+.flatpickr-day.today:hover { background: var(--stone); border-color: var(--sun); color: var(--ink); }

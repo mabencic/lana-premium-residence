@@ -29,7 +29,7 @@ const ui = {
     contactIntro: 'Javite nam datume i broj gostiju, a odgovaramo s dostupnošću i cijenom.',
     bookOnline: 'Rezerviraj online',
     form: {
-      name: 'Ime i prezime', arrival: 'Dolazak', departure: 'Odlazak', guests: 'Broj gostiju', message: 'Poruka',
+      name: 'Ime i prezime', dates: 'Dolazak i odlazak', datesPlaceholder: 'Odaberite datume', arrival: 'Dolazak', departure: 'Odlazak', guests: 'Broj gostiju', message: 'Poruka',
       sendMail: 'Pošalji e-mailom', sendWhatsApp: 'Pošalji na WhatsApp',
       hint: 'Otvara se vaša aplikacija za e-mail ili WhatsApp s već pripremljenom porukom.',
     },
@@ -56,7 +56,7 @@ const ui = {
     contactIntro: "Tell us your dates and number of guests and we'll reply with availability and prices.",
     bookOnline: 'Book online',
     form: {
-      name: 'Full name', arrival: 'Arrival', departure: 'Departure', guests: 'Number of guests', message: 'Message',
+      name: 'Full name', dates: 'Arrival and departure', datesPlaceholder: 'Select dates', arrival: 'Arrival', departure: 'Departure', guests: 'Number of guests', message: 'Message',
       sendMail: 'Send by email', sendWhatsApp: 'Send on WhatsApp',
       hint: 'This opens your email app or WhatsApp with the message already written.',
     },
@@ -83,7 +83,7 @@ const ui = {
     contactIntro: 'Teilen Sie uns Ihre Reisedaten und die Zahl der Gäste mit, wir antworten mit Verfügbarkeit und Preis.',
     bookOnline: 'Online buchen',
     form: {
-      name: 'Vor- und Nachname', arrival: 'Anreise', departure: 'Abreise', guests: 'Anzahl der Gäste', message: 'Nachricht',
+      name: 'Vor- und Nachname', dates: 'Anreise und Abreise', datesPlaceholder: 'Daten auswählen', arrival: 'Anreise', departure: 'Abreise', guests: 'Anzahl der Gäste', message: 'Nachricht',
       sendMail: 'Per E-Mail senden', sendWhatsApp: 'Per WhatsApp senden',
       hint: 'Es öffnet sich Ihre E-Mail-App oder WhatsApp mit der vorbereiteten Nachricht.',
     },
@@ -110,7 +110,7 @@ const ui = {
     contactIntro: 'Indicateci le date e il numero di ospiti, vi risponderemo con disponibilità e prezzo.',
     bookOnline: 'Prenota online',
     form: {
-      name: 'Nome e cognome', arrival: 'Arrivo', departure: 'Partenza', guests: "Numero di ospiti", message: 'Messaggio',
+      name: 'Nome e cognome', dates: 'Arrivo e partenza', datesPlaceholder: 'Seleziona le date', arrival: 'Arrivo', departure: 'Partenza', guests: "Numero di ospiti", message: 'Messaggio',
       sendMail: 'Invia via e-mail', sendWhatsApp: 'Invia su WhatsApp',
       hint: 'Si apre la vostra app di posta o WhatsApp con il messaggio già pronto.',
     },
