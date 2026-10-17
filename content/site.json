@@ -1,0 +1,23 @@
+{
+  "name": "Lana Premium Residence",
+  "url": "",
+  "locale": "hr",
+  "seo_title": "Lana Premium Residence | Apartmani s bazenom u Poreču",
+  "seo_description": "Osam klimatiziranih apartmana s terasom, bazenom, teniskim terenima i besplatnim parkingom u Poreču (Kukci), Istra. Pošaljite upit za svoj odmor.",
+  "hero_title": "Mirni apartmani u zelenilu kraj Poreča",
+  "hero_text": "Osam klimatiziranih apartmana s terasom, bazenom i teniskim terenima. Do središta Poreča je oko šest kilometara, a ovdje vas čekaju hlad, tišina i parking pred vratima.",
+  "hero_image": "images/hero.svg",
+  "hero_image_alt": "Pogled na Lana Premium Residence i bazen",
+  "about_title": "Odmor na svom ritmu",
+  "about_text": "Lana Premium Residence je manji kompleks od osam apartmana usred zelenila u Kukcima kraj Poreča. Svaki apartman ima vlastitu kuhinju, klimu i terasu ili balkon, a zajednički su vam na raspolaganju bazen s ležaljkama, bar uz bazen i teniski tereni. Idealno za parove i male obitelji koji žele mir, a more i grad imaju na kratkoj vožnji.",
+  "address": "Cerova ulica 43, 52446 Poreč",
+  "distance_note": "Oko 6 km do središta Poreča",
+  "latitude": "45.26177",
+  "longitude": "13.62345",
+  "phone": "+385 00 000 0000",
+  "email": "info@example.com",
+  "whatsapp": "385000000000",
+  "instagram": "",
+  "facebook": "",
+  "booking_url": ""
+}

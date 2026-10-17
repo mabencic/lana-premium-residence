@@ -1,0 +1,12 @@
+{
+  "items": [
+    {
+      "name": "Premium apartman s terasom",
+      "count_note": "8 apartmana u kompleksu",
+      "description": "Jedna spavaća soba s bračnim krevetom, dnevni boravak s kauč-krevetom, potpuno opremljena kuhinja i terasa ili balkon s pogledom na zelenilo.",
+      "image": "images/apartment-1.svg",
+      "image_alt": "Dnevni boravak premium apartmana",
+      "specs": ["Do 3 osobe", "45 m²", "1 spavaća soba", "Klima", "Kuhinja", "Terasa ili balkon"]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "items": [
+    { "image": "images/gallery-1.svg", "alt": "Bazen s ležaljkama" },
+    { "image": "images/gallery-2.svg", "alt": "Spavaća soba" },
+    { "image": "images/gallery-3.svg", "alt": "Kuhinja i blagovaonica" },
+    { "image": "images/gallery-4.svg", "alt": "Terasa apartmana" },
+    { "image": "images/gallery-5.svg", "alt": "Teniski teren" },
+    { "image": "images/gallery-6.svg", "alt": "Pogled na kompleks iz zraka" }
+  ]
+}

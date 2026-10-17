@@ -1,0 +1,8 @@
+{
+  "items": [
+    { "question": "Koliko osoba stane u apartman?", "answer": "Apartmani imaju bračni krevet i kauč-krevet, pa udobno primaju dvije do tri osobe." },
+    { "question": "Ima li parkinga?", "answer": "Da, uz apartmane je besplatan privatni parking." },
+    { "question": "Radi li bazen cijele godine?", "answer": "Bazen je sezonski. Za točne termine otvaranja javite nam se upitom." },
+    { "question": "Kako mogu rezervirati?", "answer": "Pošaljite upit e-mailom ili porukom na WhatsApp s datumima dolaska i odlaska te brojem gostiju, a mi vam odgovaramo s dostupnošću i cijenom." }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "items": [
+    { "title": "Bazen", "text": "Vanjski bazen s ležaljkama i suncobranima, otvoren sezonski." },
+    { "title": "Bar uz bazen", "text": "Piće i lagani zalogaji bez napuštanja kompleksa." },
+    { "title": "Teniski tereni", "text": "Tereni na terenu kompleksa za goste." },
+    { "title": "Besplatan parking", "text": "Privatni parking uz apartmane, bez naknade." },
+    { "title": "Wi-Fi", "text": "Besplatan bežični internet u apartmanima." },
+    { "title": "Klima i kuhinja", "text": "Svaki apartman ima klimu i potpuno opremljenu kuhinju." },
+    { "title": "Najam bicikala", "text": "Za vožnju po okolici Poreča i istarskim stazama." },
+    { "title": "Minimarket", "text": "Osnovne namirnice na dohvat ruke." }
+  ]
+}
