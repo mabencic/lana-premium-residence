@@ -1,8 +1,80 @@
 {
   "items": [
-    { "question": "Koliko osoba stane u apartman?", "answer": "Apartmani imaju bračni krevet i kauč-krevet, pa udobno primaju dvije do tri osobe." },
-    { "question": "Ima li parkinga?", "answer": "Da, uz apartmane je besplatan privatni parking." },
-    { "question": "Radi li bazen cijele godine?", "answer": "Bazen je sezonski. Za točne termine otvaranja javite nam se upitom." },
-    { "question": "Kako mogu rezervirati?", "answer": "Pošaljite upit e-mailom ili porukom na WhatsApp s datumima dolaska i odlaska te brojem gostiju, a mi vam odgovaramo s dostupnošću i cijenom." }
+    {
+      "label": "Broj osoba",
+      "hr": {
+        "question": "Koliko osoba stane u apartman?",
+        "answer": "Apartmani imaju bračni krevet i kauč-krevet, pa udobno primaju dvije do tri osobe."
+      },
+      "en": {
+        "question": "How many people can stay in an apartment?",
+        "answer": "The apartments have a double bed and a sofa bed, so they comfortably sleep two to three guests."
+      },
+      "de": {
+        "question": "Wie viele Personen passen in ein Apartment?",
+        "answer": "Die Apartments haben ein Doppelbett und ein Schlafsofa und bieten bequem Platz für zwei bis drei Personen."
+      },
+      "it": {
+        "question": "Quante persone possono alloggiare in un appartamento?",
+        "answer": "Gli appartamenti hanno un letto matrimoniale e un divano letto, quindi ospitano comodamente da due a tre persone."
+      }
+    },
+    {
+      "label": "Parking",
+      "hr": {
+        "question": "Ima li parkinga?",
+        "answer": "Da, uz apartmane je besplatan privatni parking."
+      },
+      "en": {
+        "question": "Is there parking?",
+        "answer": "Yes, there is free private parking next to the apartments."
+      },
+      "de": {
+        "question": "Gibt es einen Parkplatz?",
+        "answer": "Ja, direkt bei den Apartments gibt es einen kostenlosen Privatparkplatz."
+      },
+      "it": {
+        "question": "C'è un parcheggio?",
+        "answer": "Sì, vicino agli appartamenti c'è un parcheggio privato gratuito."
+      }
+    },
+    {
+      "label": "Bazen",
+      "hr": {
+        "question": "Radi li bazen cijele godine?",
+        "answer": "Bazen je sezonski. Za točne termine otvaranja javite nam se upitom."
+      },
+      "en": {
+        "question": "Is the pool open all year?",
+        "answer": "The pool is seasonal. Send us an enquiry for the exact opening dates."
+      },
+      "de": {
+        "question": "Ist der Pool das ganze Jahr geöffnet?",
+        "answer": "Der Pool ist saisonal geöffnet. Die genauen Öffnungszeiten erfahren Sie auf Anfrage."
+      },
+      "it": {
+        "question": "La piscina è aperta tutto l'anno?",
+        "answer": "La piscina è stagionale. Per le date esatte di apertura inviateci una richiesta."
+      }
+    },
+    {
+      "label": "Rezervacija",
+      "hr": {
+        "question": "Kako mogu rezervirati?",
+        "answer": "Pošaljite upit e-mailom ili porukom na WhatsApp s datumima dolaska i odlaska te brojem gostiju, a mi vam odgovaramo s dostupnošću i cijenom."
+      },
+      "en": {
+        "question": "How can I book?",
+        "answer": "Send an enquiry by email or a WhatsApp message with your arrival and departure dates and the number of guests, and we'll reply with availability and the price."
+      },
+      "de": {
+        "question": "Wie kann ich buchen?",
+        "answer": "Senden Sie uns eine Anfrage per E-Mail oder WhatsApp mit An- und Abreisedatum sowie der Zahl der Gäste, wir antworten mit Verfügbarkeit und Preis."
+      },
+      "it": {
+        "question": "Come posso prenotare?",
+        "answer": "Inviateci una richiesta via e-mail o WhatsApp con le date di arrivo e partenza e il numero di ospiti, vi risponderemo con disponibilità e prezzo."
+      }
+    }
   ]
 }

@@ -1,10 +1,64 @@
 {
   "items": [
-    { "image": "images/gallery-1.svg", "alt": "Bazen s ležaljkama" },
-    { "image": "images/gallery-2.svg", "alt": "Spavaća soba" },
-    { "image": "images/gallery-3.svg", "alt": "Kuhinja i blagovaonica" },
-    { "image": "images/gallery-4.svg", "alt": "Terasa apartmana" },
-    { "image": "images/gallery-5.svg", "alt": "Teniski teren" },
-    { "image": "images/gallery-6.svg", "alt": "Pogled na kompleks iz zraka" }
+    {
+      "label": "Bazen",
+      "image": "images/gallery-1.svg",
+      "alt": {
+        "hr": "Bazen s ležaljkama",
+        "en": "Pool with sun loungers",
+        "de": "Pool mit Liegen",
+        "it": "Piscina con lettini"
+      }
+    },
+    {
+      "label": "Spavaća soba",
+      "image": "images/gallery-2.svg",
+      "alt": {
+        "hr": "Spavaća soba",
+        "en": "Bedroom",
+        "de": "Schlafzimmer",
+        "it": "Camera da letto"
+      }
+    },
+    {
+      "label": "Kuhinja",
+      "image": "images/gallery-3.svg",
+      "alt": {
+        "hr": "Kuhinja i blagovaonica",
+        "en": "Kitchen and dining area",
+        "de": "Küche und Essbereich",
+        "it": "Cucina e zona pranzo"
+      }
+    },
+    {
+      "label": "Terasa",
+      "image": "images/gallery-4.svg",
+      "alt": {
+        "hr": "Terasa apartmana",
+        "en": "Apartment terrace",
+        "de": "Terrasse des Apartments",
+        "it": "Terrazza dell'appartamento"
+      }
+    },
+    {
+      "label": "Teniski teren",
+      "image": "images/gallery-5.svg",
+      "alt": {
+        "hr": "Teniski teren",
+        "en": "Tennis court",
+        "de": "Tennisplatz",
+        "it": "Campo da tennis"
+      }
+    },
+    {
+      "label": "Pogled iz zraka",
+      "image": "images/gallery-6.svg",
+      "alt": {
+        "hr": "Pogled na kompleks iz zraka",
+        "en": "Aerial view of the complex",
+        "de": "Luftaufnahme der Anlage",
+        "it": "Veduta aerea del complesso"
+      }
+    }
   ]
 }

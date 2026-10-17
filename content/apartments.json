@@ -1,12 +1,64 @@
 {
   "items": [
     {
-      "name": "Premium apartman s terasom",
-      "count_note": "8 apartmana u kompleksu",
-      "description": "Jedna spavaća soba s bračnim krevetom, dnevni boravak s kauč-krevetom, potpuno opremljena kuhinja i terasa ili balkon s pogledom na zelenilo.",
+      "label": "Premium apartman s terasom",
       "image": "images/apartment-1.svg",
-      "image_alt": "Dnevni boravak premium apartmana",
-      "specs": ["Do 3 osobe", "45 m²", "1 spavaća soba", "Klima", "Kuhinja", "Terasa ili balkon"]
+      "hr": {
+        "name": "Premium apartman s terasom",
+        "count_note": "8 apartmana u kompleksu",
+        "description": "Jedna spavaća soba s bračnim krevetom, dnevni boravak s kauč-krevetom, potpuno opremljena kuhinja i terasa ili balkon s pogledom na zelenilo.",
+        "image_alt": "Dnevni boravak premium apartmana",
+        "specs": [
+          "Do 3 osobe",
+          "45 m²",
+          "1 spavaća soba",
+          "Klima",
+          "Kuhinja",
+          "Terasa ili balkon"
+        ]
+      },
+      "en": {
+        "name": "Premium apartment with terrace",
+        "count_note": "8 apartments in the complex",
+        "description": "One bedroom with a double bed, a living room with a sofa bed, a fully equipped kitchen and a terrace or balcony overlooking the greenery.",
+        "image_alt": "Living room of the premium apartment",
+        "specs": [
+          "Up to 3 guests",
+          "45 m²",
+          "1 bedroom",
+          "Air conditioning",
+          "Kitchen",
+          "Terrace or balcony"
+        ]
+      },
+      "de": {
+        "name": "Premium-Apartment mit Terrasse",
+        "count_note": "8 Apartments in der Anlage",
+        "description": "Ein Schlafzimmer mit Doppelbett, Wohnzimmer mit Schlafsofa, voll ausgestattete Küche und Terrasse oder Balkon mit Blick ins Grüne.",
+        "image_alt": "Wohnzimmer des Premium-Apartments",
+        "specs": [
+          "Bis zu 3 Personen",
+          "45 m²",
+          "1 Schlafzimmer",
+          "Klimaanlage",
+          "Küche",
+          "Terrasse oder Balkon"
+        ]
+      },
+      "it": {
+        "name": "Appartamento premium con terrazza",
+        "count_note": "8 appartamenti nel complesso",
+        "description": "Una camera da letto con letto matrimoniale, soggiorno con divano letto, cucina completamente attrezzata e terrazza o balcone con vista sul verde.",
+        "image_alt": "Soggiorno dell'appartamento premium",
+        "specs": [
+          "Fino a 3 persone",
+          "45 m²",
+          "1 camera da letto",
+          "Aria condizionata",
+          "Cucina",
+          "Terrazza o balcone"
+        ]
+      }
     }
   ]
 }

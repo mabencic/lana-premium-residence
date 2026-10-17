@@ -1,7 +1,9 @@
-// Gradi statičnu stranicu iz datoteka u mapi content/ u mapu dist/.
+// Gradi statičnu višejezičnu stranicu iz datoteka u mapi content/ u mapu dist/.
+// Hrvatski je na adresi "/", ostali jezici na "/en/", "/de/", "/it/".
 // Nema vanjskih paketa: pokreće se s `node build.js`.
 const fs = require('fs');
 const path = require('path');
+const { defaultLang, languages, ui } = require('./i18n.js');
 
 const root = __dirname;
 const dist = path.join(root, 'dist');
@@ -15,177 +17,215 @@ const faq = read('faq.json').items || [];
 
 const esc = (s = '') =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+// Siguran ispis u <script>: nikad ne zatvara oznaku skripte.
+const js = (v) => JSON.stringify(v).replace(/</g, '\\u003c');
+
+// Vrijednost za traženi jezik; ako je prazna, uzima se hrvatski.
+const empty = (v) => v === undefined || v === null || v === '' || (Array.isArray(v) && v.length === 0);
+const pick = (map, lang, key) => {
+  const v = map && map[lang] ? map[lang][key] : undefined;
+  if (!empty(v)) return v;
+  const d = map && map[defaultLang] ? map[defaultLang][key] : undefined;
+  return empty(d) ? (key === 'specs' ? [] : '') : d;
+};
 
 const baseUrl = (site.url || '').replace(/\/$/, '');
+const img = (p) => (p ? (/^https?:/.test(p) ? p : '/' + p.replace(/^\//, '')) : '');
+const urlFor = (lang) => (lang === defaultLang ? '/' : `/${lang}/`);
 const telHref = 'tel:' + String(site.phone || '').replace(/[^\d+]/g, '');
 const waNumber = String(site.whatsapp || '').replace(/\D/g, '');
-const mapQuery = encodeURIComponent(`${site.address}`);
+const mapQuery = encodeURIComponent(site.address || '');
 const mapEmbed = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
 const mapLink = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
-const img = (p) => (p || '').replace(/^\//, '');
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'LodgingBusiness',
-  name: site.name,
-  description: site.seo_description,
-  url: baseUrl || undefined,
-  image: baseUrl && site.hero_image ? `${baseUrl}/${img(site.hero_image)}` : undefined,
-  telephone: site.phone,
-  email: site.email,
-  numberOfRooms: 8,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Cerova ulica 43',
-    postalCode: '52446',
-    addressLocality: 'Poreč',
-    addressRegion: 'Istarska županija',
-    addressCountry: 'HR',
-  },
-  geo: { '@type': 'GeoCoordinates', latitude: site.latitude, longitude: site.longitude },
-  amenityFeature: ['Bazen', 'Teniski tereni', 'Besplatan parking', 'Wi-Fi', 'Klima'].map((n) => ({
-    '@type': 'LocationFeatureSpecification',
-    name: n,
-    value: true,
-  })),
-  sameAs: [site.instagram, site.facebook].filter(Boolean),
-};
+function renderPage(lang) {
+  const t = ui[lang];
+  const tx = (key) => pick(site.texts, lang, key);
+  const self = baseUrl ? baseUrl + urlFor(lang) : '';
 
-const faqLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faq.map((f) => ({
-    '@type': 'Question',
-    name: f.question,
-    acceptedAnswer: { '@type': 'Answer', text: f.answer },
-  })),
-};
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'LodgingBusiness',
+    name: site.name,
+    description: tx('seo_description'),
+    inLanguage: lang,
+    url: self || undefined,
+    image: baseUrl && site.hero_image ? baseUrl + img(site.hero_image) : undefined,
+    telephone: site.phone,
+    email: site.email,
+    numberOfRooms: 8,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Cerova ulica 43',
+      postalCode: '52446',
+      addressLocality: 'Poreč',
+      addressRegion: 'Istarska županija',
+      addressCountry: 'HR',
+    },
+    geo: { '@type': 'GeoCoordinates', latitude: site.latitude, longitude: site.longitude },
+    amenityFeature: t.schemaAmenities.map((n) => ({ '@type': 'LocationFeatureSpecification', name: n, value: true })),
+    sameAs: [site.instagram, site.facebook].filter(Boolean),
+  };
+  const faqLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    inLanguage: lang,
+    mainEntity: faq.map((f) => ({
+      '@type': 'Question',
+      name: pick(f, lang, 'question'),
+      acceptedAnswer: { '@type': 'Answer', text: pick(f, lang, 'answer') },
+    })),
+  };
 
-const apartmentCards = apartments
-  .map(
-    (a) => `
+  const apartmentCards = apartments
+    .map((a) => {
+      const note = pick(a, lang, 'count_note');
+      return `
       <article class="apt">
-        <div class="arch apt__img"><img src="${esc(img(a.image))}" alt="${esc(a.image_alt)}" loading="lazy" width="800" height="1000"></div>
+        <div class="arch apt__img"><img src="${esc(img(a.image))}" alt="${esc(pick(a, lang, 'image_alt'))}" loading="lazy" width="800" height="1000"></div>
         <div class="apt__body">
-          <h3>${esc(a.name)}</h3>
-          ${a.count_note ? `<p class="apt__note">${esc(a.count_note)}</p>` : ''}
-          <p>${esc(a.description)}</p>
-          <ul class="chips">${(a.specs || []).map((s) => `<li>${esc(s)}</li>`).join('')}</ul>
-          <a class="btn" href="#kontakt">Pošalji upit</a>
+          <h3>${esc(pick(a, lang, 'name'))}</h3>
+          ${note ? `<p class="apt__note">${esc(note)}</p>` : ''}
+          <p>${esc(pick(a, lang, 'description'))}</p>
+          <ul class="chips">${pick(a, lang, 'specs').map((s) => `<li>${esc(s)}</li>`).join('')}</ul>
+          <a class="btn" href="#contact">${esc(t.aptButton)}</a>
         </div>
-      </article>`
-  )
-  .join('');
+      </article>`;
+    })
+    .join('');
 
-const amenityItems = amenities
-  .map((a) => `<li><h3>${esc(a.title)}</h3><p>${esc(a.text)}</p></li>`)
-  .join('');
+  const amenityItems = amenities
+    .map((a) => `<li><h3>${esc(pick(a, lang, 'title'))}</h3><p>${esc(pick(a, lang, 'text'))}</p></li>`)
+    .join('');
 
-const galleryItems = gallery
-  .map(
-    (g, i) =>
-      `<figure class="g g--${(i % 6) + 1}"><img src="${esc(img(g.image))}" alt="${esc(g.alt)}" loading="lazy" width="900" height="700"></figure>`
-  )
-  .join('');
+  const galleryItems = gallery
+    .map((g, i) => {
+      const alt = (g.alt && (g.alt[lang] || g.alt[defaultLang])) || '';
+      return `<figure class="g g--${(i % 6) + 1}"><img src="${esc(img(g.image))}" alt="${esc(alt)}" loading="lazy" width="900" height="700"></figure>`;
+    })
+    .join('');
 
-const faqItems = faq
-  .map((f) => `<details><summary>${esc(f.question)}</summary><p>${esc(f.answer)}</p></details>`)
-  .join('');
+  const faqItems = faq
+    .map((f) => `<details><summary>${esc(pick(f, lang, 'question'))}</summary><p>${esc(pick(f, lang, 'answer'))}</p></details>`)
+    .join('');
 
-const bookingBtn = site.booking_url
-  ? `<a class="btn btn--ghost" href="${esc(site.booking_url)}" rel="noopener">Rezerviraj online</a>`
-  : '';
+  const langSwitch = languages
+    .map(
+      (l) =>
+        `<li><a href="${urlFor(l.code)}" hreflang="${l.code}" lang="${l.code}" title="${esc(l.name)}"${l.code === lang ? ' aria-current="true"' : ''}>${l.short}</a></li>`
+    )
+    .join('');
 
-const html = `<!doctype html>
-<html lang="${esc(site.locale || 'hr')}">
+  const alternates = baseUrl
+    ? languages.map((l) => `<link rel="alternate" hreflang="${l.code}" href="${baseUrl + urlFor(l.code)}">`).join('\n  ') +
+      `\n  <link rel="alternate" hreflang="x-default" href="${baseUrl + urlFor(defaultLang)}">`
+    : '';
+
+  const ogAlternates = languages
+    .filter((l) => l.code !== lang)
+    .map((l) => `<meta property="og:locale:alternate" content="${l.ogLocale}">`)
+    .join('\n  ');
+
+  const current = languages.find((l) => l.code === lang);
+  const bookingBtn = site.booking_url
+    ? `<a class="btn btn--ghost" href="${esc(site.booking_url)}" rel="noopener">${esc(t.bookOnline)}</a>`
+    : '';
+
+  return `<!doctype html>
+<html lang="${lang}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${esc(site.seo_title)}</title>
-  <meta name="description" content="${esc(site.seo_description)}">
-  ${baseUrl ? `<link rel="canonical" href="${esc(baseUrl)}/">` : ''}
+  <title>${esc(tx('seo_title'))}</title>
+  <meta name="description" content="${esc(tx('seo_description'))}">
+  ${self ? `<link rel="canonical" href="${esc(self)}">` : ''}
+  ${alternates}
   <meta property="og:type" content="website">
-  <meta property="og:title" content="${esc(site.seo_title)}">
-  <meta property="og:description" content="${esc(site.seo_description)}">
-  <meta property="og:locale" content="hr_HR">
-  ${baseUrl && site.hero_image ? `<meta property="og:image" content="${esc(baseUrl)}/${esc(img(site.hero_image))}">` : ''}
+  <meta property="og:title" content="${esc(tx('seo_title'))}">
+  <meta property="og:description" content="${esc(tx('seo_description'))}">
+  <meta property="og:locale" content="${current.ogLocale}">
+  ${ogAlternates}
+  ${baseUrl && site.hero_image ? `<meta property="og:image" content="${esc(baseUrl + img(site.hero_image))}">` : ''}
   <meta name="theme-color" content="#12474f">
-  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
-  <script type="application/ld+json">${JSON.stringify(faqLd)}</script>
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">${js(jsonLd)}</script>
+  <script type="application/ld+json">${js(faqLd)}</script>
 </head>
 <body>
-  <a class="skip" href="#sadrzaj">Preskoči na sadržaj</a>
+  <a class="skip" href="#content">${esc(t.skip)}</a>
   <header class="top">
-    <a class="brand" href="#">${esc(site.name)}</a>
-    <nav aria-label="Glavni izbornik">
-      <a href="#apartmani">Apartmani</a>
-      <a href="#sadrzaji">Sadržaji</a>
-      <a href="#galerija">Galerija</a>
-      <a href="#lokacija">Lokacija</a>
-      <a href="#pitanja">Pitanja</a>
-      <a class="btn btn--small" href="#kontakt">Upit</a>
-    </nav>
+    <a class="brand" href="${urlFor(lang)}">${esc(site.name)}</a>
+    <div class="top__right">
+      <nav aria-label="${esc(t.navLabel)}">
+        <a href="#apartments">${esc(t.nav.apartments)}</a>
+        <a href="#amenities">${esc(t.nav.amenities)}</a>
+        <a href="#gallery">${esc(t.nav.gallery)}</a>
+        <a href="#location">${esc(t.nav.location)}</a>
+        <a href="#faq">${esc(t.nav.faq)}</a>
+        <a class="btn btn--small" href="#contact">${esc(t.nav.enquire)}</a>
+      </nav>
+      <ul class="lang" aria-label="${esc(t.langLabel)}">${langSwitch}</ul>
+    </div>
   </header>
 
-  <main id="sadrzaj">
+  <main id="content">
     <section class="hero">
       <div class="hero__text">
-        <h1>${esc(site.hero_title)}</h1>
-        <p>${esc(site.hero_text)}</p>
+        <h1>${esc(tx('hero_title'))}</h1>
+        <p>${esc(tx('hero_text'))}</p>
         <div class="actions">
-          <a class="btn" href="#kontakt">Pošalji upit</a>
-          <a class="btn btn--ghost" href="#apartmani">Pogledaj apartmane</a>
+          <a class="btn" href="#contact">${esc(t.heroPrimary)}</a>
+          <a class="btn btn--ghost" href="#apartments">${esc(t.heroSecondary)}</a>
         </div>
       </div>
-      <div class="arch hero__img"><img src="${esc(img(site.hero_image))}" alt="${esc(site.hero_image_alt)}" width="800" height="1000"></div>
+      <div class="arch hero__img"><img src="${esc(img(site.hero_image))}" alt="${esc(tx('hero_image_alt'))}" width="800" height="1000"></div>
     </section>
 
     <section class="about">
-      <h2>${esc(site.about_title)}</h2>
-      <p>${esc(site.about_text)}</p>
+      <h2>${esc(tx('about_title'))}</h2>
+      <p>${esc(tx('about_text'))}</p>
     </section>
 
-    <section id="apartmani" class="block">
-      <h2>Apartmani</h2>
+    <section id="apartments" class="block">
+      <h2>${esc(t.apartments)}</h2>
       <div class="apts">${apartmentCards}</div>
     </section>
 
-    <section id="sadrzaji" class="block block--tint">
-      <h2>Što je uključeno u boravak</h2>
+    <section id="amenities" class="block block--tint">
+      <h2>${esc(t.amenities)}</h2>
       <ul class="amenities">${amenityItems}</ul>
     </section>
 
-    <section id="galerija" class="block">
-      <h2>Galerija</h2>
+    <section id="gallery" class="block">
+      <h2>${esc(t.gallery)}</h2>
       <div class="gallery">${galleryItems}</div>
     </section>
 
-    <section id="lokacija" class="block block--tint">
+    <section id="location" class="block block--tint">
       <div class="loc">
         <div>
-          <h2>Lokacija</h2>
+          <h2>${esc(t.location)}</h2>
           <address>${esc(site.address)}</address>
-          <p>${esc(site.distance_note)}. Mirno okruženje u zelenilu, a grad, plaže i istarska zaleđa su na kratkoj vožnji.</p>
-          <a class="btn btn--ghost" href="${mapLink}" rel="noopener">Otvori u Google kartama</a>
+          <p>${esc(tx('distance_note'))}. ${esc(t.locationText)}</p>
+          <a class="btn btn--ghost" href="${mapLink}" rel="noopener">${esc(t.mapButton)}</a>
         </div>
-        <iframe title="Karta: ${esc(site.name)}" src="${mapEmbed}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe title="${esc(t.mapTitle)}: ${esc(site.name)}" src="${mapEmbed}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
 
-    <section id="pitanja" class="block">
-      <h2>Česta pitanja</h2>
+    <section id="faq" class="block">
+      <h2>${esc(t.faq)}</h2>
       <div class="faq">${faqItems}</div>
     </section>
 
-    <section id="kontakt" class="block contact">
+    <section id="contact" class="block contact">
       <div>
-        <h2>Pošaljite upit</h2>
-        <p>Javite nam datume i broj gostiju, a odgovaramo s dostupnošću i cijenom.</p>
+        <h2>${esc(t.contact)}</h2>
+        <p>${esc(t.contactIntro)}</p>
         <ul class="contact__list">
           <li><a href="${esc(telHref)}">${esc(site.phone)}</a></li>
           <li><a href="mailto:${esc(site.email)}">${esc(site.email)}</a></li>
@@ -194,19 +234,19 @@ const html = `<!doctype html>
         </ul>
         ${bookingBtn}
       </div>
-      <form id="upit" class="form" novalidate>
-        <label>Ime i prezime<input name="ime" autocomplete="name" required></label>
+      <form id="enquiry" class="form" novalidate>
+        <label>${esc(t.form.name)}<input name="name" autocomplete="name" required></label>
         <div class="row">
-          <label>Dolazak<input type="date" name="dolazak"></label>
-          <label>Odlazak<input type="date" name="odlazak"></label>
+          <label>${esc(t.form.arrival)}<input type="date" name="arrival"></label>
+          <label>${esc(t.form.departure)}<input type="date" name="departure"></label>
         </div>
-        <label>Broj gostiju<input type="number" name="gosti" min="1" max="3" value="2"></label>
-        <label>Poruka<textarea name="poruka" rows="4"></textarea></label>
+        <label>${esc(t.form.guests)}<input type="number" name="guests" min="1" max="3" value="2"></label>
+        <label>${esc(t.form.message)}<textarea name="message" rows="4"></textarea></label>
         <div class="actions">
-          <button class="btn" type="submit" data-channel="mail">Pošalji e-mailom</button>
-          <button class="btn btn--ghost" type="submit" data-channel="wa">Pošalji na WhatsApp</button>
+          <button class="btn" type="submit" data-channel="mail">${esc(t.form.sendMail)}</button>
+          <button class="btn btn--ghost" type="submit" data-channel="wa">${esc(t.form.sendWhatsApp)}</button>
         </div>
-        <p class="form__hint">Otvara se vaša aplikacija za e-mail ili WhatsApp s već pripremljenom porukom.</p>
+        <p class="form__hint">${esc(t.form.hint)}</p>
       </form>
     </section>
   </main>
@@ -218,9 +258,10 @@ const html = `<!doctype html>
 
   <script>
     (function () {
-      var form = document.getElementById('upit');
-      var email = ${JSON.stringify(site.email)};
-      var wa = ${JSON.stringify(waNumber)};
+      var form = document.getElementById('enquiry');
+      var email = ${js(site.email)};
+      var wa = ${js(waNumber)};
+      var m = ${js({ ...t.mail, siteName: site.name })};
       var channel = 'mail';
       form.querySelectorAll('button').forEach(function (b) {
         b.addEventListener('click', function () { channel = b.getAttribute('data-channel'); });
@@ -228,20 +269,19 @@ const html = `<!doctype html>
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         var d = new FormData(form);
-        var lines = [
-          'Upit za ${esc(site.name)}',
-          'Ime: ' + (d.get('ime') || ''),
-          'Dolazak: ' + (d.get('dolazak') || ''),
-          'Odlazak: ' + (d.get('odlazak') || ''),
-          'Gostiju: ' + (d.get('gosti') || ''),
+        var text = [
+          m.title + ' ' + m.siteName,
+          m.name + ': ' + (d.get('name') || ''),
+          m.arrival + ': ' + (d.get('arrival') || ''),
+          m.departure + ': ' + (d.get('departure') || ''),
+          m.guests + ': ' + (d.get('guests') || ''),
           '',
-          d.get('poruka') || ''
-        ];
-        var text = lines.join('\\n');
+          d.get('message') || ''
+        ].join('\\n');
         if (channel === 'wa') {
           window.open('https://wa.me/' + wa + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
         } else {
-          window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent('Upit za smještaj') + '&body=' + encodeURIComponent(text);
+          window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent(m.subject) + '&body=' + encodeURIComponent(text);
         }
       });
     })();
@@ -249,36 +289,49 @@ const html = `<!doctype html>
 </body>
 </html>
 `;
+}
 
 // --- izlaz ---
 fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(dist, { recursive: true });
 
-const copyDir = (src, dest) => {
-  if (!fs.existsSync(src)) return;
-  fs.cpSync(src, dest, { recursive: true });
-};
-copyDir(path.join(root, 'css'), path.join(dist, 'css'));
-copyDir(path.join(root, 'images'), path.join(dist, 'images'));
-copyDir(path.join(root, 'admin'), path.join(dist, 'admin'));
+for (const dir of ['css', 'images', 'admin']) {
+  const src = path.join(root, dir);
+  if (fs.existsSync(src)) fs.cpSync(src, path.join(dist, dir), { recursive: true });
+}
 
-fs.writeFileSync(path.join(dist, 'index.html'), html);
+for (const l of languages) {
+  const outDir = l.code === defaultLang ? dist : path.join(dist, l.code);
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.writeFileSync(path.join(outDir, 'index.html'), renderPage(l.code));
+}
 
 fs.writeFileSync(
   path.join(dist, 'robots.txt'),
   `User-agent: *\nAllow: /\nDisallow: /admin/\n${baseUrl ? `Sitemap: ${baseUrl}/sitemap.xml\n` : ''}`
 );
+
 if (baseUrl) {
+  const links = languages
+    .map((l) => `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${baseUrl + urlFor(l.code)}"/>`)
+    .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl + urlFor(defaultLang)}"/>`)
+    .join('\n');
+  const urls = languages.map((l) => `  <url>\n    <loc>${baseUrl + urlFor(l.code)}</loc>\n${links}\n  </url>`).join('\n');
   fs.writeFileSync(
     path.join(dist, 'sitemap.xml'),
-    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${baseUrl}/</loc></url>\n</urlset>\n`
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`
   );
 }
 
-// upozorenja o privremenim podacima
+// upozorenja
 const warn = [];
 if (/example\.com/.test(site.email)) warn.push('E-mail je još privremeni (info@example.com).');
 if (/0000/.test(site.phone)) warn.push('Telefon je još privremeni.');
-if (!baseUrl) warn.push('Adresa stranice (url) nije postavljena, pa nema canonical/sitemap.');
+if (!baseUrl) warn.push('Adresa stranice (url) nije postavljena, pa nema canonical, hreflang i sitemap.');
+for (const l of languages) {
+  if (l.code === defaultLang) continue;
+  const miss = ['seo_title', 'hero_title', 'hero_text', 'about_text'].filter((k) => empty(site.texts && site.texts[l.code] && site.texts[l.code][k]));
+  if (miss.length) warn.push(`Jezik ${l.code}: nedostaju prijevodi (${miss.join(', ')}), prikazuje se hrvatski tekst.`);
+}
 warn.forEach((w) => console.warn('UPOZORENJE: ' + w));
-console.log('Gotovo: dist/index.html');
+console.log('Gotovo: ' + languages.map((l) => (l.code === defaultLang ? 'index.html' : l.code + '/index.html')).join(', '));

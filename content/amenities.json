@@ -1,12 +1,156 @@
 {
   "items": [
-    { "title": "Bazen", "text": "Vanjski bazen s ležaljkama i suncobranima, otvoren sezonski." },
-    { "title": "Bar uz bazen", "text": "Piće i lagani zalogaji bez napuštanja kompleksa." },
-    { "title": "Teniski tereni", "text": "Tereni na terenu kompleksa za goste." },
-    { "title": "Besplatan parking", "text": "Privatni parking uz apartmane, bez naknade." },
-    { "title": "Wi-Fi", "text": "Besplatan bežični internet u apartmanima." },
-    { "title": "Klima i kuhinja", "text": "Svaki apartman ima klimu i potpuno opremljenu kuhinju." },
-    { "title": "Najam bicikala", "text": "Za vožnju po okolici Poreča i istarskim stazama." },
-    { "title": "Minimarket", "text": "Osnovne namirnice na dohvat ruke." }
+    {
+      "label": "Bazen",
+      "hr": {
+        "title": "Bazen",
+        "text": "Vanjski bazen s ležaljkama i suncobranima, otvoren sezonski."
+      },
+      "en": {
+        "title": "Pool",
+        "text": "Outdoor pool with sun loungers and parasols, open seasonally."
+      },
+      "de": {
+        "title": "Pool",
+        "text": "Außenpool mit Liegen und Sonnenschirmen, saisonal geöffnet."
+      },
+      "it": {
+        "title": "Piscina",
+        "text": "Piscina esterna con lettini e ombrelloni, aperta stagionalmente."
+      }
+    },
+    {
+      "label": "Bar uz bazen",
+      "hr": {
+        "title": "Bar uz bazen",
+        "text": "Piće i lagani zalogaji bez napuštanja kompleksa."
+      },
+      "en": {
+        "title": "Pool bar",
+        "text": "Drinks and light snacks without leaving the complex."
+      },
+      "de": {
+        "title": "Poolbar",
+        "text": "Getränke und kleine Snacks, ohne die Anlage zu verlassen."
+      },
+      "it": {
+        "title": "Bar a bordo piscina",
+        "text": "Bevande e spuntini leggeri senza lasciare il complesso."
+      }
+    },
+    {
+      "label": "Teniski tereni",
+      "hr": {
+        "title": "Teniski tereni",
+        "text": "Tereni u sklopu kompleksa za goste."
+      },
+      "en": {
+        "title": "Tennis courts",
+        "text": "Courts within the complex for guests."
+      },
+      "de": {
+        "title": "Tennisplätze",
+        "text": "Plätze innerhalb der Anlage für Gäste."
+      },
+      "it": {
+        "title": "Campi da tennis",
+        "text": "Campi all'interno del complesso per gli ospiti."
+      }
+    },
+    {
+      "label": "Besplatan parking",
+      "hr": {
+        "title": "Besplatan parking",
+        "text": "Privatni parking uz apartmane, bez naknade."
+      },
+      "en": {
+        "title": "Free parking",
+        "text": "Private parking next to the apartments, free of charge."
+      },
+      "de": {
+        "title": "Kostenloser Parkplatz",
+        "text": "Privatparkplatz bei den Apartments, kostenlos."
+      },
+      "it": {
+        "title": "Parcheggio gratuito",
+        "text": "Parcheggio privato vicino agli appartamenti, senza costi."
+      }
+    },
+    {
+      "label": "Wi-Fi",
+      "hr": {
+        "title": "Wi-Fi",
+        "text": "Besplatan bežični internet u apartmanima."
+      },
+      "en": {
+        "title": "Wi-Fi",
+        "text": "Free wireless internet in the apartments."
+      },
+      "de": {
+        "title": "WLAN",
+        "text": "Kostenloses WLAN in den Apartments."
+      },
+      "it": {
+        "title": "Wi-Fi",
+        "text": "Wi-Fi gratuito negli appartamenti."
+      }
+    },
+    {
+      "label": "Klima i kuhinja",
+      "hr": {
+        "title": "Klima i kuhinja",
+        "text": "Svaki apartman ima klimu i potpuno opremljenu kuhinju."
+      },
+      "en": {
+        "title": "Air conditioning and kitchen",
+        "text": "Every apartment has air conditioning and a fully equipped kitchen."
+      },
+      "de": {
+        "title": "Klimaanlage und Küche",
+        "text": "Jedes Apartment hat Klimaanlage und eine voll ausgestattete Küche."
+      },
+      "it": {
+        "title": "Aria condizionata e cucina",
+        "text": "Ogni appartamento ha aria condizionata e una cucina completamente attrezzata."
+      }
+    },
+    {
+      "label": "Najam bicikala",
+      "hr": {
+        "title": "Najam bicikala",
+        "text": "Za vožnju po okolici Poreča i istarskim stazama."
+      },
+      "en": {
+        "title": "Bike rental",
+        "text": "For rides around Poreč and along Istrian trails."
+      },
+      "de": {
+        "title": "Fahrradverleih",
+        "text": "Für Touren rund um Poreč und auf istrischen Radwegen."
+      },
+      "it": {
+        "title": "Noleggio biciclette",
+        "text": "Per pedalare nei dintorni di Parenzo e lungo i sentieri istriani."
+      }
+    },
+    {
+      "label": "Minimarket",
+      "hr": {
+        "title": "Minimarket",
+        "text": "Osnovne namirnice na dohvat ruke."
+      },
+      "en": {
+        "title": "Minimarket",
+        "text": "Basic groceries close at hand."
+      },
+      "de": {
+        "title": "Minimarkt",
+        "text": "Grundnahrungsmittel direkt vor Ort."
+      },
+      "it": {
+        "title": "Minimarket",
+        "text": "Prodotti di prima necessità a portata di mano."
+      }
+    }
   ]
 }

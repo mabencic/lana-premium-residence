@@ -1,99 +1,513 @@
-# Postavke CMS-a. Ako stranica dobije vlastitu domenu, promijenite base_url i site_url.
+# Automatski generirano naredbom: node tools/make-cms-config.js
+# Ako stranica dobije vlastitu domenu, promijenite SITE_URL u tools/make-cms-config.js i pokrenite naredbu ponovno.
 backend:
-  name: github
-  repo: mabencic/lana-premium-residence
-  branch: main
-  base_url: https://lana-premium-residence.pages.dev
-  auth_endpoint: api/auth
-
-locale: hr
-media_folder: images/uploads
-public_folder: /images/uploads
-site_url: https://lana-premium-residence.pages.dev
-
+  name: "github"
+  repo: "mabencic/lana-premium-residence"
+  branch: "main"
+  base_url: "https://lana-premium-residence.pages.dev"
+  auth_endpoint: "api/auth"
+locale: "hr"
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+site_url: "https://lana-premium-residence.pages.dev"
 collections:
-  - name: stranica
-    label: Stranica
+  - name: "stranica"
+    label: "Stranica"
     files:
-      - name: site
-        label: Opći podaci i kontakt
-        file: content/site.json
-        format: json
+      - name: "site"
+        label: "Opći podaci, kontakt i uvodni tekstovi"
+        file: "content/site.json"
+        format: "json"
         fields:
-          - { label: Naziv objekta, name: name, widget: string }
-          - { label: "Adresa stranice (npr. https://lana-premium-residence.hr)", name: url, widget: string, required: false }
-          - { label: Jezik, name: locale, widget: hidden, default: hr }
-          - { label: "Naslov u Googleu (do 60 znakova)", name: seo_title, widget: string }
-          - { label: "Opis u Googleu (do 160 znakova)", name: seo_description, widget: text }
-          - { label: Glavni naslov, name: hero_title, widget: string }
-          - { label: Uvodni tekst, name: hero_text, widget: text }
-          - { label: Glavna fotografija, name: hero_image, widget: image }
-          - { label: Opis glavne fotografije, name: hero_image_alt, widget: string }
-          - { label: Naslov "O nama", name: about_title, widget: string }
-          - { label: Tekst "O nama", name: about_text, widget: text }
-          - { label: Adresa, name: address, widget: string }
-          - { label: Udaljenost (npr. Oko 6 km do središta Poreča), name: distance_note, widget: string }
-          - { label: Zemljopisna širina, name: latitude, widget: string }
-          - { label: Zemljopisna dužina, name: longitude, widget: string }
-          - { label: Telefon, name: phone, widget: string }
-          - { label: E-mail, name: email, widget: string }
-          - { label: "WhatsApp broj (samo znamenke, npr. 385991234567)", name: whatsapp, widget: string }
-          - { label: Instagram (poveznica), name: instagram, widget: string, required: false }
-          - { label: Facebook (poveznica), name: facebook, widget: string, required: false }
-          - { label: "Poveznica za online rezervaciju (ako postoji)", name: booking_url, widget: string, required: false }
-
-      - name: apartments
-        label: Apartmani
-        file: content/apartments.json
-        format: json
-        fields:
-          - label: Apartmani
-            name: items
-            widget: list
-            summary: "{{fields.name}}"
+          - label: "Naziv objekta"
+            name: "name"
+            widget: "string"
+          - label: "Adresa stranice (npr. https://lana-premium-residence.hr)"
+            name: "url"
+            widget: "string"
+            required: false
+          - label: "Adresa objekta"
+            name: "address"
+            widget: "string"
+          - label: "Zemljopisna širina"
+            name: "latitude"
+            widget: "string"
+          - label: "Zemljopisna dužina"
+            name: "longitude"
+            widget: "string"
+          - label: "Telefon"
+            name: "phone"
+            widget: "string"
+          - label: "E-mail"
+            name: "email"
+            widget: "string"
+          - label: "WhatsApp broj (samo znamenke, npr. 385991234567)"
+            name: "whatsapp"
+            widget: "string"
+          - label: "Instagram (poveznica)"
+            name: "instagram"
+            widget: "string"
+            required: false
+          - label: "Facebook (poveznica)"
+            name: "facebook"
+            widget: "string"
+            required: false
+          - label: "Poveznica za online rezervaciju (ako postoji)"
+            name: "booking_url"
+            widget: "string"
+            required: false
+          - label: "Glavna fotografija"
+            name: "hero_image"
+            widget: "image"
+          - label: "Tekstovi po jezicima"
+            name: "texts"
+            widget: "object"
             fields:
-              - { label: Naziv, name: name, widget: string }
-              - { label: Napomena (npr. 8 apartmana u kompleksu), name: count_note, widget: string, required: false }
-              - { label: Opis, name: description, widget: text }
-              - { label: Fotografija, name: image, widget: image }
-              - { label: Opis fotografije, name: image_alt, widget: string }
-              - { label: Oznake (npr. 45 m², Klima), name: specs, widget: list, field: { label: Oznaka, name: spec, widget: string } }
-
-      - name: amenities
-        label: Sadržaji
-        file: content/amenities.json
-        format: json
+              - label: "Hrvatski (glavni jezik)"
+                name: "hr"
+                widget: "object"
+                collapsed: false
+                required: true
+                fields:
+                  - label: "Naslov u Googleu (do 60 znakova)"
+                    name: "seo_title"
+                    widget: "string"
+                  - label: "Opis u Googleu (do 160 znakova)"
+                    name: "seo_description"
+                    widget: "text"
+                  - label: "Glavni naslov"
+                    name: "hero_title"
+                    widget: "string"
+                  - label: "Uvodni tekst"
+                    name: "hero_text"
+                    widget: "text"
+                  - label: "Opis glavne fotografije"
+                    name: "hero_image_alt"
+                    widget: "string"
+                  - label: "Naslov \"O nama\""
+                    name: "about_title"
+                    widget: "string"
+                  - label: "Tekst \"O nama\""
+                    name: "about_text"
+                    widget: "text"
+                  - label: "Udaljenost (npr. Oko 6 km do središta Poreča)"
+                    name: "distance_note"
+                    widget: "string"
+              - label: "English"
+                name: "en"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - label: "Naslov u Googleu (do 60 znakova)"
+                    name: "seo_title"
+                    widget: "string"
+                    required: false
+                  - label: "Opis u Googleu (do 160 znakova)"
+                    name: "seo_description"
+                    widget: "text"
+                    required: false
+                  - label: "Glavni naslov"
+                    name: "hero_title"
+                    widget: "string"
+                    required: false
+                  - label: "Uvodni tekst"
+                    name: "hero_text"
+                    widget: "text"
+                    required: false
+                  - label: "Opis glavne fotografije"
+                    name: "hero_image_alt"
+                    widget: "string"
+                    required: false
+                  - label: "Naslov \"O nama\""
+                    name: "about_title"
+                    widget: "string"
+                    required: false
+                  - label: "Tekst \"O nama\""
+                    name: "about_text"
+                    widget: "text"
+                    required: false
+                  - label: "Udaljenost (npr. Oko 6 km do središta Poreča)"
+                    name: "distance_note"
+                    widget: "string"
+                    required: false
+              - label: "Deutsch"
+                name: "de"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - label: "Naslov u Googleu (do 60 znakova)"
+                    name: "seo_title"
+                    widget: "string"
+                    required: false
+                  - label: "Opis u Googleu (do 160 znakova)"
+                    name: "seo_description"
+                    widget: "text"
+                    required: false
+                  - label: "Glavni naslov"
+                    name: "hero_title"
+                    widget: "string"
+                    required: false
+                  - label: "Uvodni tekst"
+                    name: "hero_text"
+                    widget: "text"
+                    required: false
+                  - label: "Opis glavne fotografije"
+                    name: "hero_image_alt"
+                    widget: "string"
+                    required: false
+                  - label: "Naslov \"O nama\""
+                    name: "about_title"
+                    widget: "string"
+                    required: false
+                  - label: "Tekst \"O nama\""
+                    name: "about_text"
+                    widget: "text"
+                    required: false
+                  - label: "Udaljenost (npr. Oko 6 km do središta Poreča)"
+                    name: "distance_note"
+                    widget: "string"
+                    required: false
+              - label: "Italiano"
+                name: "it"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - label: "Naslov u Googleu (do 60 znakova)"
+                    name: "seo_title"
+                    widget: "string"
+                    required: false
+                  - label: "Opis u Googleu (do 160 znakova)"
+                    name: "seo_description"
+                    widget: "text"
+                    required: false
+                  - label: "Glavni naslov"
+                    name: "hero_title"
+                    widget: "string"
+                    required: false
+                  - label: "Uvodni tekst"
+                    name: "hero_text"
+                    widget: "text"
+                    required: false
+                  - label: "Opis glavne fotografije"
+                    name: "hero_image_alt"
+                    widget: "string"
+                    required: false
+                  - label: "Naslov \"O nama\""
+                    name: "about_title"
+                    widget: "string"
+                    required: false
+                  - label: "Tekst \"O nama\""
+                    name: "about_text"
+                    widget: "text"
+                    required: false
+                  - label: "Udaljenost (npr. Oko 6 km do središta Poreča)"
+                    name: "distance_note"
+                    widget: "string"
+                    required: false
+      - name: "apartments"
+        label: "Apartmani"
+        file: "content/apartments.json"
+        format: "json"
         fields:
-          - label: Sadržaji
-            name: items
-            widget: list
-            summary: "{{fields.title}}"
+          - label: "Apartmani"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.label}}"
             fields:
-              - { label: Naslov, name: title, widget: string }
-              - { label: Opis, name: text, widget: string }
-
-      - name: gallery
-        label: Galerija
-        file: content/gallery.json
-        format: json
+              - label: "Naziv za uređivanje (ne prikazuje se na stranici)"
+                name: "label"
+                widget: "string"
+              - label: "Fotografija"
+                name: "image"
+                widget: "image"
+              - label: "Hrvatski (glavni jezik)"
+                name: "hr"
+                widget: "object"
+                collapsed: false
+                required: true
+                fields:
+                  - label: "Naziv"
+                    name: "name"
+                    widget: "string"
+                  - label: "Napomena (npr. 8 apartmana u kompleksu)"
+                    name: "count_note"
+                    widget: "string"
+                    required: false
+                  - label: "Opis"
+                    name: "description"
+                    widget: "text"
+                  - label: "Opis fotografije"
+                    name: "image_alt"
+                    widget: "string"
+                  - label: "Oznake (npr. 45 m², Klima)"
+                    name: "specs"
+                    widget: "list"
+                    required: false
+                    field:
+                      label: "Oznaka"
+                      name: "spec"
+                      widget: "string"
+              - label: "English"
+                name: "en"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - label: "Naziv"
+                    name: "name"
+                    widget: "string"
+                    required: false
+                  - label: "Napomena (npr. 8 apartmana u kompleksu)"
+                    name: "count_note"
+                    widget: "string"
+                    required: false
+                  - label: "Opis"
+                    name: "description"
+                    widget: "text"
+                    required: false
+                  - label: "Opis fotografije"
+                    name: "image_alt"
+                    widget: "string"
+                    required: false
+                  - label: "Oznake (npr. 45 m², Klima)"
+                    name: "specs"
+                    widget: "list"
+                    required: false
+                    field:
+                      label: "Oznaka"
+                      name: "spec"
+                      widget: "string"
+              - label: "Deutsch"
+                name: "de"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - label: "Naziv"
+                    name: "name"
+                    widget: "string"
+                    required: false
+                  - label: "Napomena (npr. 8 apartmana u kompleksu)"
+                    name: "count_note"
+                    widget: "string"
+                    required: false
+                  - label: "Opis"
+                    name: "description"
+                    widget: "text"
+                    required: false
+                  - label: "Opis fotografije"
+                    name: "image_alt"
+                    widget: "string"
+                    required: false
+                  - label: "Oznake (npr. 45 m², Klima)"
+                    name: "specs"
+                    widget: "list"
+                    required: false
+                    field:
+                      label: "Oznaka"
+                      name: "spec"
+                      widget: "string"
+              - label: "Italiano"
+                name: "it"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - label: "Naziv"
+                    name: "name"
+                    widget: "string"
+                    required: false
+                  - label: "Napomena (npr. 8 apartmana u kompleksu)"
+                    name: "count_note"
+                    widget: "string"
+                    required: false
+                  - label: "Opis"
+                    name: "description"
+                    widget: "text"
+                    required: false
+                  - label: "Opis fotografije"
+                    name: "image_alt"
+                    widget: "string"
+                    required: false
+                  - label: "Oznake (npr. 45 m², Klima)"
+                    name: "specs"
+                    widget: "list"
+                    required: false
+                    field:
+                      label: "Oznaka"
+                      name: "spec"
+                      widget: "string"
+      - name: "amenities"
+        label: "Sadržaji"
+        file: "content/amenities.json"
+        format: "json"
         fields:
-          - label: Fotografije
-            name: items
-            widget: list
-            summary: "{{fields.alt}}"
+          - label: "Sadržaji"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.label}}"
             fields:
-              - { label: Fotografija, name: image, widget: image }
-              - { label: Opis fotografije, name: alt, widget: string }
-
-      - name: faq
-        label: Česta pitanja
-        file: content/faq.json
-        format: json
+              - label: "Naziv za uređivanje (ne prikazuje se na stranici)"
+                name: "label"
+                widget: "string"
+              - label: "Hrvatski (glavni jezik)"
+                name: "hr"
+                widget: "object"
+                collapsed: false
+                required: true
+                fields:
+                  - label: "Naslov"
+                    name: "title"
+                    widget: "string"
+                  - label: "Opis"
+                    name: "text"
+                    widget: "string"
+              - label: "English"
+                name: "en"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - label: "Naslov"
+                    name: "title"
+                    widget: "string"
+                    required: false
+                  - label: "Opis"
+                    name: "text"
+                    widget: "string"
+                    required: false
+              - label: "Deutsch"
+                name: "de"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - label: "Naslov"
+                    name: "title"
+                    widget: "string"
+                    required: false
+                  - label: "Opis"
+                    name: "text"
+                    widget: "string"
+                    required: false
+              - label: "Italiano"
+                name: "it"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - label: "Naslov"
+                    name: "title"
+                    widget: "string"
+                    required: false
+                  - label: "Opis"
+                    name: "text"
+                    widget: "string"
+                    required: false
+      - name: "gallery"
+        label: "Galerija"
+        file: "content/gallery.json"
+        format: "json"
         fields:
-          - label: Pitanja
-            name: items
-            widget: list
-            summary: "{{fields.question}}"
+          - label: "Fotografije"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.label}}"
             fields:
-              - { label: Pitanje, name: question, widget: string }
-              - { label: Odgovor, name: answer, widget: text }
+              - label: "Naziv za uređivanje (ne prikazuje se na stranici)"
+                name: "label"
+                widget: "string"
+              - label: "Fotografija"
+                name: "image"
+                widget: "image"
+              - label: "Opis fotografije po jezicima"
+                name: "alt"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - label: "Hrvatski (glavni jezik)"
+                    name: "hr"
+                    widget: "string"
+                    required: true
+                  - label: "English"
+                    name: "en"
+                    widget: "string"
+                    required: false
+                  - label: "Deutsch"
+                    name: "de"
+                    widget: "string"
+                    required: false
+                  - label: "Italiano"
+                    name: "it"
+                    widget: "string"
+                    required: false
+      - name: "faq"
+        label: "Česta pitanja"
+        file: "content/faq.json"
+        format: "json"
+        fields:
+          - label: "Pitanja"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - label: "Naziv za uređivanje (ne prikazuje se na stranici)"
+                name: "label"
+                widget: "string"
+              - label: "Hrvatski (glavni jezik)"
+                name: "hr"
+                widget: "object"
+                collapsed: false
+                required: true
+                fields:
+                  - label: "Pitanje"
+                    name: "question"
+                    widget: "string"
+                  - label: "Odgovor"
+                    name: "answer"
+                    widget: "text"
+              - label: "English"
+                name: "en"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - label: "Pitanje"
+                    name: "question"
+                    widget: "string"
+                    required: false
+                  - label: "Odgovor"
+                    name: "answer"
+                    widget: "text"
+                    required: false
+              - label: "Deutsch"
+                name: "de"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - label: "Pitanje"
+                    name: "question"
+                    widget: "string"
+                    required: false
+                  - label: "Odgovor"
+                    name: "answer"
+                    widget: "text"
+                    required: false
+              - label: "Italiano"
+                name: "it"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - label: "Pitanje"
+                    name: "question"
+                    widget: "string"
+                    required: false
+                  - label: "Odgovor"
+                    name: "answer"
+                    widget: "text"
+                    required: false

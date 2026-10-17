@@ -1,14 +1,26 @@
 # Lana Premium Residence: web stranica
 
-Statična stranica na hrvatskom s CMS-om (Decap CMS). Prijatelj sadržaj uređuje na `adresa-stranice/admin`, a stranica se sama osvježi.
+Statična višejezična stranica s CMS-om (Decap CMS). Prijatelj sadržaj uređuje na `adresa-stranice/admin`, a stranica se sama osvježi.
+
+## Jezici
+
+Hrvatski je glavni jezik i nalazi se na početnoj adresi (`/`). Ostali jezici su na `/en/` (engleski), `/de/` (njemački) i `/it/` (talijanski), a u zaglavlju je izbornik za promjenu jezika. Posjetitelji ne bivaju automatski preusmjereni, jezik biraju sami.
+
+U CMS-u se tekstovi za sva četiri jezika uređuju na istom mjestu: svaka stavka ima blokove Hrvatski, English, Deutsch i Italiano. Hrvatski je obavezan. Ako neko polje u drugom jeziku ostane prazno, na stranici se prikaže hrvatski tekst. Fotografije se biraju samo jednom.
+
+Prijevode je napisao Claude. Preporučuje se da ih pregleda osoba koja govori taj jezik prije objave.
+
+Tekstovi sučelja (izbornik, gumbi, obrazac) nalaze se u datoteci `i18n.js`.
 
 ## Što je u mapi
 
 - `content/` tekstovi i podaci (to uređuje CMS)
 - `images/` slike (privremene su SVG slike-zamjene)
 - `css/style.css` izgled
-- `build.js` pretvara sadržaj u gotovu stranicu (mapa `dist/`)
-- `admin/` CMS
+- `build.js` pretvara sadržaj u gotovu stranicu (mapa `dist/`), po jedna stranica za svaki jezik
+- `i18n.js` popis jezika i tekstovi sučelja
+- `admin/` CMS (`config.yml` je generiran, vidi `tools/make-cms-config.js`)
+- `tools/make-cms-config.js` generira `admin/config.yml`. Ako mijenjate polja u CMS-u, mijenjate ovu datoteku i pokrenete `node tools/make-cms-config.js`.
 - `functions/api/` mali dio koji omogućuje prijavu u CMS preko GitHuba
 
 ## Postavljanje, korak po korak

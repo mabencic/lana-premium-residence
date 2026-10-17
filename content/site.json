@@ -1,17 +1,7 @@
 {
   "name": "Lana Premium Residence",
   "url": "https://lana-premium-residence.pages.dev",
-  "locale": "hr",
-  "seo_title": "Lana Premium Residence | Apartmani s bazenom u Poreču",
-  "seo_description": "Osam klimatiziranih apartmana s terasom, bazenom, teniskim terenima i besplatnim parkingom u Poreču (Kukci), Istra. Pošaljite upit za svoj odmor.",
-  "hero_title": "Mirni apartmani u zelenilu kraj Poreča",
-  "hero_text": "Osam klimatiziranih apartmana s terasom, bazenom i teniskim terenima. Do središta Poreča je oko šest kilometara, a ovdje vas čekaju hlad, tišina i parking pred vratima.",
-  "hero_image": "images/hero.svg",
-  "hero_image_alt": "Pogled na Lana Premium Residence i bazen",
-  "about_title": "Odmor na svom ritmu",
-  "about_text": "Lana Premium Residence je manji kompleks od osam apartmana usred zelenila u Kukcima kraj Poreča. Svaki apartman ima vlastitu kuhinju, klimu i terasu ili balkon, a zajednički su vam na raspolaganju bazen s ležaljkama, bar uz bazen i teniski tereni. Idealno za parove i male obitelji koji žele mir, a more i grad imaju na kratkoj vožnji.",
   "address": "Cerova ulica 43, 52446 Poreč",
-  "distance_note": "Oko 6 km do središta Poreča",
   "latitude": "45.26177",
   "longitude": "13.62345",
   "phone": "+385 00 000 0000",
@@ -19,5 +9,48 @@
   "whatsapp": "385000000000",
   "instagram": "",
   "facebook": "",
-  "booking_url": ""
+  "booking_url": "",
+  "hero_image": "images/hero.svg",
+  "texts": {
+    "hr": {
+      "seo_title": "Lana Premium Residence | Apartmani s bazenom u Poreču",
+      "seo_description": "Osam klimatiziranih apartmana s terasom, bazenom, teniskim terenima i besplatnim parkingom u Poreču (Kukci), Istra. Pošaljite upit za svoj odmor.",
+      "hero_title": "Mirni apartmani u zelenilu kraj Poreča",
+      "hero_text": "Osam klimatiziranih apartmana s terasom, bazenom i teniskim terenima. Do središta Poreča je oko šest kilometara, a ovdje vas čekaju hlad, tišina i parking pred vratima.",
+      "hero_image_alt": "Pogled na Lana Premium Residence i bazen",
+      "about_title": "Odmor na svom ritmu",
+      "about_text": "Lana Premium Residence je manji kompleks od osam apartmana usred zelenila u Kukcima kraj Poreča. Svaki apartman ima vlastitu kuhinju, klimu i terasu ili balkon, a zajednički su vam na raspolaganju bazen s ležaljkama, bar uz bazen i teniski tereni. Idealno za parove i male obitelji koji žele mir, a more i grad imaju na kratkoj vožnji.",
+      "distance_note": "Oko 6 km do središta Poreča"
+    },
+    "en": {
+      "seo_title": "Lana Premium Residence | Apartments with Pool in Poreč",
+      "seo_description": "Eight air-conditioned apartments with terrace, pool, tennis courts and free parking in Poreč (Kukci), Istria. Send an enquiry for your holiday.",
+      "hero_title": "Quiet apartments in the greenery near Poreč",
+      "hero_text": "Eight air-conditioned apartments with a terrace, a pool and tennis courts. The centre of Poreč is about six kilometres away, and here you'll find shade, quiet and parking at your door.",
+      "hero_image_alt": "View of Lana Premium Residence and the pool",
+      "about_title": "A holiday at your own pace",
+      "about_text": "Lana Premium Residence is a small complex of eight apartments set in greenery in Kukci, near Poreč. Every apartment has its own kitchen, air conditioning and a terrace or balcony, and guests share a pool with sun loungers, a pool bar and tennis courts. Ideal for couples and small families who want peace and quiet, with the sea and the town a short drive away.",
+      "distance_note": "About 6 km to the centre of Poreč"
+    },
+    "de": {
+      "seo_title": "Lana Premium Residence | Apartments mit Pool in Poreč",
+      "seo_description": "Acht klimatisierte Apartments mit Terrasse, Pool, Tennisplätzen und kostenlosem Parkplatz in Poreč (Kukci), Istrien. Senden Sie Ihre Anfrage für Ihren Urlaub.",
+      "hero_title": "Ruhige Apartments im Grünen bei Poreč",
+      "hero_text": "Acht klimatisierte Apartments mit Terrasse, Pool und Tennisplätzen. Bis ins Zentrum von Poreč sind es etwa sechs Kilometer, hier erwarten Sie Schatten, Ruhe und ein Parkplatz direkt vor der Tür.",
+      "hero_image_alt": "Blick auf die Lana Premium Residence und den Pool",
+      "about_title": "Urlaub im eigenen Rhythmus",
+      "about_text": "Die Lana Premium Residence ist eine kleine Anlage mit acht Apartments, eingebettet ins Grüne in Kukci bei Poreč. Jedes Apartment hat eine eigene Küche, Klimaanlage und Terrasse oder Balkon, und für alle Gäste stehen ein Pool mit Liegen, eine Poolbar und Tennisplätze bereit. Ideal für Paare und kleine Familien, die Ruhe suchen und Meer und Stadt in kurzer Fahrt erreichen möchten.",
+      "distance_note": "Etwa 6 km bis ins Zentrum von Poreč"
+    },
+    "it": {
+      "seo_title": "Lana Premium Residence | Appartamenti con piscina a Parenzo",
+      "seo_description": "Otto appartamenti climatizzati con terrazza, piscina, campi da tennis e parcheggio gratuito a Parenzo (Poreč, Kukci), Istria. Invia una richiesta per la tua vacanza.",
+      "hero_title": "Appartamenti tranquilli nel verde vicino a Parenzo",
+      "hero_text": "Otto appartamenti climatizzati con terrazza, piscina e campi da tennis. Il centro di Parenzo dista circa sei chilometri, qui vi aspettano ombra, silenzio e parcheggio davanti alla porta.",
+      "hero_image_alt": "Vista di Lana Premium Residence e della piscina",
+      "about_title": "Una vacanza al vostro ritmo",
+      "about_text": "Lana Premium Residence è un piccolo complesso di otto appartamenti immerso nel verde a Kukci, vicino a Parenzo (Poreč). Ogni appartamento ha cucina, aria condizionata e terrazza o balcone, e gli ospiti hanno a disposizione piscina con lettini, bar a bordo piscina e campi da tennis. Ideale per coppie e piccole famiglie che cercano tranquillità, con il mare e la città a pochi minuti d'auto.",
+      "distance_note": "Circa 6 km dal centro di Parenzo"
+    }
+  }
 }

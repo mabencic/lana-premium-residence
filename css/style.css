@@ -46,9 +46,19 @@ p { margin: 0 0 1rem; max-width: 62ch; }
   border-bottom: 1px solid var(--line);
 }
 .brand { font-family: var(--serif); font-size: 1.5rem; text-decoration: none; color: var(--sea); white-space: nowrap; }
+.top__right { display: flex; align-items: center; gap: 1.5rem; }
 .top nav { display: flex; align-items: center; gap: 1.5rem; }
 .top nav a { text-decoration: none; font-weight: 500; font-size: .95rem; }
 .top nav a:not(.btn):hover { color: var(--sea); text-decoration: underline; text-underline-offset: 4px; }
+
+/* Izbornik jezika */
+.lang { display: flex; gap: .15rem; list-style: none; margin: 0; padding: 0; }
+.lang a {
+  display: block; padding: .35rem .6rem; border-radius: 999px;
+  font-weight: 600; font-size: .85rem; line-height: 1; text-decoration: none; color: var(--muted);
+}
+.lang a:hover { color: var(--sea); background: var(--stone); }
+.lang a[aria-current="true"] { background: var(--sea); color: #fff; }
 
 /* Gumbi */
 .btn {
@@ -153,9 +163,14 @@ details p { margin: .75rem 0 0; color: var(--muted); }
 .foot { background: var(--sea-deep); color: #cfe0df; padding: 2rem var(--gutter); display: flex; flex-wrap: wrap; gap: .5rem 2rem; justify-content: space-between; }
 .foot p { margin: 0; max-width: none; font-size: .95rem; }
 
+/* Uži zasloni: izbornik se skriva, ostaje naziv i izbor jezika */
+@media (max-width: 1040px) {
+  .top nav { display: none; }
+}
+
 /* Mobitel */
 @media (max-width: 860px) {
-  .top nav a:not(.btn) { display: none; }
+  .brand { font-size: 1.2rem; white-space: normal; line-height: 1.1; }
   .hero, .apt, .loc, .contact { grid-template-columns: 1fr; }
   .hero__img { max-width: 24rem; }
   .apt__img { max-width: 22rem; }
