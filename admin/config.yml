@@ -1,15 +1,15 @@
-# Postavke CMS-a. PROMIJENITE dvije vrijednosti označene s TODO.
+# Postavke CMS-a. Ako stranica dobije vlastitu domenu, promijenite base_url i site_url.
 backend:
   name: github
-  repo: TODO-GITHUB-KORISNIK/lana-premium-residence   # npr. mario123/lana-premium-residence
+  repo: mabencic/lana-premium-residence
   branch: main
-  base_url: https://TODO-ADRESA-STRANICE                # npr. https://lana-premium-residence.pages.dev
+  base_url: https://lana-premium-residence.pages.dev
   auth_endpoint: api/auth
 
 locale: hr
 media_folder: images/uploads
 public_folder: /images/uploads
-site_url: https://TODO-ADRESA-STRANICE
+site_url: https://lana-premium-residence.pages.dev
 
 collections:
   - name: stranica

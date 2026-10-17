@@ -16,7 +16,7 @@ const faq = read('faq.json').items || [];
 const esc = (s = '') =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-const baseUrl = (site.url || process.env.CF_PAGES_URL || '').replace(/\/$/, '');
+const baseUrl = (site.url || '').replace(/\/$/, '');
 const telHref = 'tel:' + String(site.phone || '').replace(/[^\d+]/g, '');
 const waNumber = String(site.whatsapp || '').replace(/\D/g, '');
 const mapQuery = encodeURIComponent(`${site.address}`);
