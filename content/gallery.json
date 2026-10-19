@@ -65,7 +65,7 @@
     },
     {
       "label": "Terasa",
-      "image": "images/gallery-4.svg",
+      "image": "images/terasa-1.jpg",
       "alt": {
         "hr": "Terasa apartmana",
         "en": "Apartment terrace",
@@ -77,7 +77,8 @@
         "en": "Terrace",
         "de": "Terrasse",
         "it": "Terrazza"
-      }
+      },
+      "more": []
     },
     {
       "label": "Teniski teren",
