@@ -115,25 +115,6 @@
       }
     },
     {
-      "label": "Najam bicikala",
-      "hr": {
-        "title": "Najam bicikala",
-        "text": "Za vožnju po okolici Poreča i istarskim stazama."
-      },
-      "en": {
-        "title": "Bike rental",
-        "text": "For rides around Poreč and along Istrian trails."
-      },
-      "de": {
-        "title": "Fahrradverleih",
-        "text": "Für Touren rund um Poreč und auf istrischen Radwegen."
-      },
-      "it": {
-        "title": "Noleggio biciclette",
-        "text": "Per pedalare nei dintorni di Parenzo e lungo i sentieri istriani."
-      }
-    },
-    {
       "label": "Minimarket",
       "hr": {
         "title": "Minimarket",
