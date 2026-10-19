@@ -5,7 +5,6 @@
   "latitude": "45.26177",
   "longitude": "13.62345",
   "phone": "+385 98 163 1933",
-  "email": "info@lanapremiumresidence.com",
   "whatsapp": "385981631933",
   "instagram": "",
   "facebook": "",
@@ -52,5 +51,6 @@
       "about_text": "Lana Premium Residence è un piccolo complesso di otto appartamenti immerso nel verde a Kukci, vicino a Parenzo (Poreč). Ogni appartamento ha cucina, aria condizionata e terrazza o balcone, e gli ospiti hanno a disposizione piscina con lettini, bar a bordo piscina e campi da tennis. Ideale per coppie e piccole famiglie che cercano tranquillità, con il mare e la città a pochi minuti d'auto.",
       "distance_note": "Circa 6 km dal centro di Parenzo"
     }
-  }
+  },
+  "turnstile_sitekey": "0x4AAAAAAFb6WsAl3rmscuF5"
 }

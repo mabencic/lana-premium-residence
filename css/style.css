@@ -228,3 +228,10 @@ details p { margin: .75rem 0 0; color: var(--muted); }
 .g__cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 3rem 1.1rem 1rem; text-align: left; color: #fff; font-weight: 600; font-size: 1.15rem; letter-spacing: .01em; background: linear-gradient(to top, rgba(8,24,28,.72), rgba(8,24,28,0)); pointer-events: none; }
 .g__btn .g__more { z-index: 1; }
 @media (max-width: 860px) { .g__cap { font-size: 1rem; padding: 2.25rem .9rem .8rem; } }
+
+/* E-mail adresa se prikazuje tek nakon provjere (Turnstile) */
+.contact__list .linklike { background: none; border: 0; padding: 0; font: inherit; font-weight: 600; color: var(--sea); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.contact__list .linklike:disabled { opacity: .6; cursor: progress; }
+.email-err, .form__err { color: #9b2c2c; font-size: .9rem; margin: .35rem 0 0; }
+.form__open { font-size: .95rem; color: var(--sea); font-weight: 600; text-underline-offset: 4px; }
+#ts-box { margin-top: .35rem; }

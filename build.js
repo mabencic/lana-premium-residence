@@ -52,7 +52,6 @@ function renderPage(lang) {
     url: self || undefined,
     image: baseUrl && site.hero_image ? baseUrl + img(site.hero_image) : undefined,
     telephone: site.phone,
-    email: site.email,
     numberOfRooms: 8,
     address: {
       '@type': 'PostalAddress',
@@ -251,7 +250,7 @@ function renderPage(lang) {
         <p>${esc(t.contactIntro)}</p>
         <ul class="contact__list">
           <li><a href="${esc(telHref)}">${esc(site.phone)}</a></li>
-          <li><a href="mailto:${esc(site.email)}">${esc(site.email)}</a></li>
+          <li id="email-item"><button type="button" class="linklike" id="show-email">${esc(t.email.show)}</button><div id="ts-box"></div></li>
           ${site.instagram ? `<li><a href="${esc(site.instagram)}" rel="noopener">Instagram</a></li>` : ''}
           ${site.facebook ? `<li><a href="${esc(site.facebook)}" rel="noopener">Facebook</a></li>` : ''}
         </ul>
@@ -284,6 +283,7 @@ function renderPage(lang) {
     <p class="lb__count" aria-live="polite"></p>
   </dialog>
 
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
   <script src="/vendor/flatpickr/flatpickr.min.js"></script>
   ${current.code !== 'en' ? `<script src="/vendor/flatpickr/l10n/${current.code}.js"></script>` : ''}
   <script>
@@ -339,7 +339,68 @@ function renderPage(lang) {
           locale: Object.assign({}, (flatpickr.l10ns[${js(current.code)}] || flatpickr.l10ns.default), { rangeSeparator: ' \u2013 ', firstDayOfWeek: 1 })
         });
       }
-      var email = ${js(site.email)};
+      var sitekey = ${js(process.env.TURNSTILE_SITEKEY || site.turnstile_sitekey || '')};
+      var emailText = ${js(t.email)};
+      var email = null, emailPromise = null, widgetId = null;
+      // E-mail adresa se ne nalazi u kodu stranice: server je vraća tek nakon provjere (Cloudflare Turnstile).
+      var getEmail = function () {
+        if (email) return Promise.resolve(email);
+        if (emailPromise) return emailPromise;
+        emailPromise = new Promise(function (resolve, reject) {
+          var tries = 0;
+          var start = function () {
+            if (!window.turnstile) {
+              if (++tries > 100) return reject(new Error('turnstile'));
+              return setTimeout(start, 100);
+            }
+            try {
+              widgetId = turnstile.render('#ts-box', {
+                sitekey: sitekey,
+                execution: 'execute',
+                appearance: 'interaction-only',
+                callback: function (token) {
+                  fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ token: token }) })
+                    .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('verify')); })
+                    .then(function (d) { return d && d.email ? resolve(d.email) : reject(new Error('empty')); })
+                    .catch(reject);
+                },
+                'error-callback': function () { reject(new Error('widget')); }
+              });
+              turnstile.execute('#ts-box');
+            } catch (err) { reject(err); }
+          };
+          start();
+        });
+        emailPromise.then(function (a) {
+          email = a;
+          try { turnstile.remove(widgetId); } catch (e) {}
+          showEmail(a);
+        }, function () {
+          emailPromise = null;
+          try { turnstile.remove(widgetId); } catch (e) {}
+          var btn = document.getElementById('show-email');
+          if (btn) { btn.disabled = false; btn.textContent = emailText.show; }
+          var item = document.getElementById('email-item');
+          if (item && !item.querySelector('.email-err')) {
+            var p = document.createElement('p'); p.className = 'email-err'; p.setAttribute('role', 'alert'); p.textContent = emailText.error; item.appendChild(p);
+          }
+        });
+        return emailPromise;
+      };
+      var showEmail = function (addr) {
+        var item = document.getElementById('email-item');
+        if (!item) return;
+        item.textContent = '';
+        var a = document.createElement('a'); a.href = 'mailto:' + addr; a.textContent = addr; item.appendChild(a);
+      };
+      var showBtn = document.getElementById('show-email');
+      if (showBtn) showBtn.addEventListener('click', function () {
+        showBtn.disabled = true; showBtn.textContent = emailText.checking;
+        var old = document.querySelector('.email-err'); if (old) old.remove();
+        getEmail().catch(function () {});
+      });
+      // Provjera se pokreće čim posjetitelj počne ispunjavati obrazac, da je adresa spremna pri slanju.
+      form.addEventListener('focusin', function () { if (!email) getEmail().catch(function () {}); }, { once: true });
       var wa = ${js(waNumber)};
       var m = ${js({ ...t.mail, siteName: site.name })};
       var channel = 'mail';
@@ -367,7 +428,17 @@ function renderPage(lang) {
         if (channel === 'wa') {
           window.open('https://wa.me/' + wa + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
         } else {
-          window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent(m.subject) + '&body=' + encodeURIComponent(text);
+          getEmail().then(function (addr) {
+            var href = 'mailto:' + addr + '?subject=' + encodeURIComponent(m.subject) + '&body=' + encodeURIComponent(text);
+            var fb = form.querySelector('.form__open');
+            if (!fb) { fb = document.createElement('a'); fb.className = 'form__open'; form.appendChild(fb); }
+            fb.href = href; fb.textContent = emailText.open;
+            window.location.href = href;
+          }, function () {
+            var er = form.querySelector('.form__err');
+            if (!er) { er = document.createElement('p'); er.className = 'form__err'; er.setAttribute('role', 'alert'); form.appendChild(er); }
+            er.textContent = emailText.error;
+          });
         }
       });
     })();
@@ -411,7 +482,7 @@ if (baseUrl) {
 
 // upozorenja
 const warn = [];
-if (/example\.com/.test(site.email)) warn.push('E-mail je još privremeni (info@example.com).');
+if (!site.turnstile_sitekey) warn.push('Nedostaje turnstile_sitekey u content/site.json (e-mail se neće moći prikazati).');
 if (/0000/.test(site.phone)) warn.push('Telefon je još privremeni.');
 if (!baseUrl) warn.push('Adresa stranice (url) nije postavljena, pa nema canonical, hreflang i sitemap.');
 for (const l of languages) {

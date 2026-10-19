@@ -42,7 +42,15 @@ Tekstovi sučelja (izbornik, gumbi, obrazac) nalaze se u datoteci `i18n.js`.
    - Build output directory: `dist`
 4. Save and Deploy. Dobit ćete adresu oblika `lana-premium-residence.pages.dev`.
 
-### 3. Vlastita domena
+### 3. Zaštita e-mail adrese od botova (Cloudflare Turnstile)
+E-mail adresa nije u kodu stranice. Prikazuje se tek nakon što Cloudflare Turnstile potvrdi da je posjetitelj osoba (funkcija `functions/api/contact.js`).
+1. Cloudflare, Turnstile, Add widget: domena `lanapremiumresidence.com`. Javni Site key upisan je u `content/site.json` (`turnstile_sitekey`).
+2. Cloudflare, projekt, Settings, Variables and Secrets, dodajte:
+   - `TURNSTILE_SECRET_KEY` (tajni ključ widgeta, kao Secret),
+   - `CONTACT_EMAIL` (adresa koja se prikazuje posjetiteljima).
+3. Nakon dodavanja varijabli pokrenite novi deploy da stupe na snagu.
+
+### 4. Vlastita domena
 Cloudflare, projekt, Custom domains, Set up a domain. Nakon toga upišite novu adresu u `content/site.json`, polje `url`. Time se uključuju sitemap i canonical oznake za Google.
 
 ## Što još treba zamijeniti prije objave

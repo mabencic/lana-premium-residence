@@ -29,6 +29,7 @@ const ui = {
     contact: 'Pošaljite upit',
     contactIntro: 'Javite nam datume i broj gostiju, a odgovaramo s dostupnošću i cijenom.',
     bookOnline: 'Rezerviraj online',
+    email: { show: "Prikaži e-mail adresu", checking: "Provjera…", error: "Provjera nije uspjela. Pokušajte ponovno ili nas nazovite.", open: "Otvori e-mail s pripremljenom porukom" },
     form: {
       name: 'Ime i prezime', dates: 'Dolazak i odlazak', datesPlaceholder: 'Odaberite datume', arrival: 'Dolazak', departure: 'Odlazak', guests: 'Broj gostiju', message: 'Poruka',
       sendMail: 'Pošalji e-mailom', sendWhatsApp: 'Pošalji na WhatsApp',
@@ -57,6 +58,7 @@ const ui = {
     contact: 'Send an enquiry',
     contactIntro: "Tell us your dates and number of guests and we'll reply with availability and prices.",
     bookOnline: 'Book online',
+    email: { show: "Show email address", checking: "Checking…", error: "Verification failed. Please try again or call us.", open: "Open email with the prepared message" },
     form: {
       name: 'Full name', dates: 'Arrival and departure', datesPlaceholder: 'Select dates', arrival: 'Arrival', departure: 'Departure', guests: 'Number of guests', message: 'Message',
       sendMail: 'Send by email', sendWhatsApp: 'Send on WhatsApp',
@@ -85,6 +87,7 @@ const ui = {
     contact: 'Anfrage senden',
     contactIntro: 'Teilen Sie uns Ihre Reisedaten und die Zahl der Gäste mit, wir antworten mit Verfügbarkeit und Preis.',
     bookOnline: 'Online buchen',
+    email: { show: "E-Mail-Adresse anzeigen", checking: "Wird geprüft …", error: "Überprüfung fehlgeschlagen. Bitte versuchen Sie es erneut oder rufen Sie uns an.", open: "E-Mail mit vorbereiteter Nachricht öffnen" },
     form: {
       name: 'Vor- und Nachname', dates: 'Anreise und Abreise', datesPlaceholder: 'Daten auswählen', arrival: 'Anreise', departure: 'Abreise', guests: 'Anzahl der Gäste', message: 'Nachricht',
       sendMail: 'Per E-Mail senden', sendWhatsApp: 'Per WhatsApp senden',
@@ -113,6 +116,7 @@ const ui = {
     contact: 'Invia una richiesta',
     contactIntro: 'Indicateci le date e il numero di ospiti, vi risponderemo con disponibilità e prezzo.',
     bookOnline: 'Prenota online',
+    email: { show: "Mostra l'indirizzo e-mail", checking: "Verifica in corso…", error: "Verifica non riuscita. Riprovate o chiamateci.", open: "Apri l'e-mail con il messaggio preparato" },
     form: {
       name: 'Nome e cognome', dates: 'Arrivo e partenza', datesPlaceholder: 'Seleziona le date', arrival: 'Arrivo', departure: 'Partenza', guests: "Numero di ospiti", message: 'Messaggio',
       sendMail: 'Invia via e-mail', sendWhatsApp: 'Invia su WhatsApp',
