@@ -220,9 +220,17 @@ collections:
               - label: "Naziv za uređivanje (ne prikazuje se na stranici)"
                 name: "label"
                 widget: "string"
-              - label: "Fotografija"
+              - label: "Fotografija (naslovna, vidi se uz opis apartmana)"
                 name: "image"
                 widget: "image"
+              - label: "Dodatne fotografije (otvaraju se klikom na naslovnu i listaju se)"
+                name: "more"
+                widget: "list"
+                required: false
+                field:
+                  label: "Fotografija"
+                  name: "photo"
+                  widget: "image"
               - label: "Hrvatski (glavni jezik)"
                 name: "hr"
                 widget: "object"

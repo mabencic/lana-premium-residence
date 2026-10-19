@@ -96,7 +96,14 @@ const config = {
               summary: '{{fields.label}}',
               fields: [
                 editLabel,
-                image('Fotografija', 'image'),
+                image('Fotografija (naslovna, vidi se uz opis apartmana)', 'image'),
+                {
+                  label: 'Dodatne fotografije (otvaraju se klikom na naslovnu i listaju se)',
+                  name: 'more',
+                  widget: 'list',
+                  required: false,
+                  field: image('Fotografija', 'photo'),
+                },
                 ...perLanguage(() => [
                   str('Naziv', 'name'),
                   str('Napomena (npr. 8 apartmana u kompleksu)', 'count_note', { required: false }),

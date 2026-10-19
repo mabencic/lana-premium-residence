@@ -77,12 +77,18 @@ function renderPage(lang) {
     })),
   };
 
+  const lightboxData = {};
   const apartmentCards = apartments
-    .map((a) => {
+    .map((a, i) => {
       const note = pick(a, lang, 'count_note');
+      const aAlt = pick(a, lang, 'image_alt');
+      const aMore = Array.isArray(a.more) ? a.more.filter(Boolean) : [];
+      lightboxData['a' + i] = [a.image, ...aMore].map((p) => ({ src: img(p), alt: aAlt }));
+      const aBadge = aMore.length ? `<span class="g__more" aria-hidden="true">+${aMore.length}</span>` : '';
+      const aLabel = aMore.length ? `${aAlt} (${t.lightbox.open})` : aAlt;
       return `
       <article class="apt">
-        <div class="arch apt__img"><img src="${esc(img(a.image))}" alt="${esc(pick(a, lang, 'image_alt'))}" loading="lazy" width="1500" height="1000"></div>
+        <div class="apt__img"><button type="button" class="g__btn" data-lb="a${i}" aria-label="${esc(aLabel)}" aria-haspopup="dialog"><img src="${esc(img(a.image))}" alt="${esc(aAlt)}" loading="lazy" width="1500" height="1000">${aBadge}</button></div>
         <div class="apt__body">
           <h3>${esc(pick(a, lang, 'name'))}</h3>
           ${note ? `<p class="apt__note">${esc(note)}</p>` : ''}
@@ -98,15 +104,14 @@ function renderPage(lang) {
     .map((a) => `<li><h3>${esc(pick(a, lang, 'title'))}</h3><p>${esc(pick(a, lang, 'text'))}</p></li>`)
     .join('');
 
-  const galleryData = [];
   const galleryItems = gallery
     .map((g, i) => {
       const alt = (g.alt && (g.alt[lang] || g.alt[defaultLang])) || '';
       const more = Array.isArray(g.more) ? g.more.filter(Boolean) : [];
-      galleryData.push([g.image, ...more].map((p) => ({ src: img(p), alt })));
+      lightboxData['g' + i] = [g.image, ...more].map((p) => ({ src: img(p), alt }));
       const badge = more.length ? `<span class="g__more" aria-hidden="true">+${more.length}</span>` : '';
       const label = more.length ? `${alt} (${t.lightbox.open})` : alt;
-      return `<figure class="g g--${(i % 6) + 1}"><button type="button" class="g__btn" data-g="${i}" aria-label="${esc(label)}" aria-haspopup="dialog"><img src="${esc(img(g.image))}" alt="${esc(alt)}" loading="lazy" width="900" height="700">${badge}</button></figure>`;
+      return `<figure class="g g--${(i % 6) + 1}"><button type="button" class="g__btn" data-lb="g${i}" aria-label="${esc(label)}" aria-haspopup="dialog"><img src="${esc(img(g.image))}" alt="${esc(alt)}" loading="lazy" width="900" height="700">${badge}</button></figure>`;
     })
     .join('');
 
@@ -273,8 +278,7 @@ function renderPage(lang) {
     (function () {
       var form = document.getElementById('enquiry');
       // Galerija: klik otvara fotografiju, a ako ih ima više, listaju se strelicama, tipkama ili prstom.
-      var photos = ${js(galleryData)};
-      var ofWord = ${js(t.lightbox.of)};
+      var photos = ${js(lightboxData)};
       var lb = document.getElementById('lightbox');
       if (lb && lb.showModal) {
         var lbImg = lb.querySelector('.lb__img');
@@ -284,12 +288,12 @@ function renderPage(lang) {
           pos = (n + set.length) % set.length;
           lbImg.src = set[pos].src;
           lbImg.alt = set[pos].alt;
-          lbCount.textContent = set.length > 1 ? (pos + 1) + ' ' + ofWord + ' ' + set.length : '';
+          lbCount.textContent = set.length > 1 ? (pos + 1) + ' / ' + set.length : '';
           if (set.length > 1) { var nx = new Image(); nx.src = set[(pos + 1) % set.length].src; }
         };
-        document.querySelectorAll('.g__btn').forEach(function (btn) {
+        document.querySelectorAll('[data-lb]').forEach(function (btn) {
           btn.addEventListener('click', function () {
-            set = photos[+btn.getAttribute('data-g')] || [];
+            set = photos[btn.getAttribute('data-lb')] || [];
             if (!set.length) return;
             lb.classList.toggle('lb--single', set.length < 2);
             show(0);

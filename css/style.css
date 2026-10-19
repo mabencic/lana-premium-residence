@@ -214,3 +214,7 @@ details p { margin: .75rem 0 0; color: var(--muted); }
 .lb__close:hover, .lb__nav:hover { background: rgba(255,255,255,.28); }
 .lb--single .lb__nav { display: none; }
 @media (max-width: 860px) { .lb__nav { width: 2.6rem; height: 2.6rem; font-size: 2rem; } .lb__prev { left: .4rem; } .lb__next { right: .4rem; } }
+
+/* Fotografija apartmana: pravokutnik u gumbu */
+.apt__img { overflow: hidden; background: var(--stone); }
+.apt__img img { width: 100%; height: 100%; object-fit: cover; }

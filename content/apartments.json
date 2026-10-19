@@ -2,7 +2,7 @@
   "items": [
     {
       "label": "Premium apartman s terasom",
-      "image": "images/apartment-1.svg",
+      "image": "images/apartman-1.jpg",
       "hr": {
         "name": "Premium apartman s terasom",
         "count_note": "8 apartmana u kompleksu",
@@ -58,7 +58,8 @@
           "Cucina",
           "Terrazza o balcone"
         ]
-      }
+      },
+      "more": []
     }
   ]
 }
