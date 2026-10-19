@@ -113,6 +113,25 @@
         "question": "Come posso prenotare?",
         "answer": "Inviateci una richiesta via e-mail o WhatsApp con le date di arrivo e partenza e il numero di ospiti, vi risponderemo con disponibilità e prezzo."
       }
+    },
+    {
+      "label": "Otkazivanje",
+      "hr": {
+        "question": "Koja je vaša politika otkazivanja?",
+        "answer": "Za izravne rezervacije možete besplatno otkazati do 7 dana prije dolaska."
+      },
+      "en": {
+        "question": "What is your cancellation policy?",
+        "answer": "For direct bookings, you can cancel free of charge up to 7 days before arrival."
+      },
+      "de": {
+        "question": "Wie lauten Ihre Stornierungsbedingungen?",
+        "answer": "Bei Direktbuchungen können Sie bis 7 Tage vor der Anreise kostenlos stornieren."
+      },
+      "it": {
+        "question": "Qual è la vostra politica di cancellazione?",
+        "answer": "Per le prenotazioni dirette potete cancellare gratuitamente fino a 7 giorni prima dell'arrivo."
+      }
     }
   ]
 }
