@@ -2,13 +2,14 @@
   "items": [
     {
       "label": "Bazen",
-      "image": "images/gallery-1.svg",
+      "image": "images/bazen-1.jpg",
       "alt": {
         "hr": "Bazen s ležaljkama",
         "en": "Pool with sun loungers",
         "de": "Pool mit Liegen",
         "it": "Piscina con lettini"
-      }
+      },
+      "more": []
     },
     {
       "label": "Spavaća soba",
