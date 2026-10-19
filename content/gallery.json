@@ -16,13 +16,14 @@
     },
     {
       "label": "Spavaća soba",
-      "image": "images/gallery-2.svg",
+      "image": "images/spavaca-1.jpg",
       "alt": {
         "hr": "Spavaća soba",
         "en": "Bedroom",
         "de": "Schlafzimmer",
         "it": "Camera da letto"
-      }
+      },
+      "more": []
     },
     {
       "label": "Kuhinja",

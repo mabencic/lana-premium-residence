@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700" role="img" aria-label="Spavaća soba">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b6b72"/><stop offset="1" stop-color="#8fc9cd"/></linearGradient></defs>
-<rect width="900" height="700" fill="url(#g)"/>
-<text x="50%" y="50%" text-anchor="middle" font-family="sans-serif" font-size="45" fill="#ffffff" fill-opacity=".85">Spavaća soba</text>
-<text x="50%" y="414" text-anchor="middle" font-family="sans-serif" font-size="28" fill="#ffffff" fill-opacity=".6">Privremena slika, zamijenite fotografijom</text>
-</svg>
