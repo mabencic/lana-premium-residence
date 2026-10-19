@@ -183,7 +183,7 @@ function renderPage(lang) {
           <a class="btn btn--ghost" href="#apartments">${esc(t.heroSecondary)}</a>
         </div>
       </div>
-      <div class="arch hero__img"><img src="${esc(img(site.hero_image))}" alt="${esc(tx('hero_image_alt'))}" width="800" height="1000"></div>
+      <div class="arch hero__img"><img src="${esc(img(site.hero_image))}" alt="${esc(tx('hero_image_alt'))}" width="1500" height="1000" fetchpriority="high"></div>
     </section>
 
     <section class="about">
