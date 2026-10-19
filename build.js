@@ -113,7 +113,7 @@ function renderPage(lang) {
       const badge = more.length ? `<span class="g__more" aria-hidden="true">+${more.length}</span>` : '';
       const cap = title ? `<span class="g__cap">${esc(title)}</span>` : '';
       const label = more.length ? `${alt} (${t.lightbox.open})` : alt;
-      return `<figure class="g g--${(i % 6) + 1}"><button type="button" class="g__btn" data-lb="g${i}" aria-label="${esc(label)}" aria-haspopup="dialog"><img src="${esc(img(g.image))}" alt="${esc(alt)}" loading="lazy" width="900" height="700">${cap}${badge}</button></figure>`;
+      return `<figure class="g g--${i < 6 ? i + 1 : 7}"><button type="button" class="g__btn" data-lb="g${i}" aria-label="${esc(label)}" aria-haspopup="dialog"><img src="${esc(img(g.image))}" alt="${esc(alt)}" loading="lazy" width="900" height="700">${cap}${badge}</button></figure>`;
     })
     .join('');
 

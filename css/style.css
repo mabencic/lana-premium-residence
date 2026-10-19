@@ -127,7 +127,9 @@ p { margin: 0 0 1rem; max-width: 62ch; }
 .g--1 { grid-column: span 4; grid-row: span 2; }
 .g--1 img { aspect-ratio: auto; min-height: 100%; }
 .g--2, .g--3 { grid-column: span 2; }
-.g--4, .g--5, .g--6 { grid-column: span 2; }
+.g--4, .g--5, .g--6, .g--7 { grid-column: span 2; }
+.g--7:last-child { grid-column: span 6; }
+.g--7:last-child img { aspect-ratio: 21 / 8; }
 
 /* Lokacija */
 .loc { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(1.5rem, 5vw, 4rem); align-items: stretch; }
@@ -175,7 +177,10 @@ details p { margin: .75rem 0 0; color: var(--muted); }
   .gallery { grid-template-columns: repeat(2, 1fr); }
   .g--1 { grid-column: span 2; grid-row: auto; }
   .g--1 img { aspect-ratio: 4 / 3; min-height: 0; }
-  .g--2, .g--3, .g--4, .g--5, .g--6 { grid-column: span 1; }
+  .g--2, .g--3, .g--4, .g--5, .g--6, .g--7 { grid-column: span 1; }
+  .g--2:nth-child(2) { grid-column: span 2; }
+  .g--7:last-child { grid-column: span 2; }
+  .g--7:last-child img { aspect-ratio: 4 / 3; }
   .row { grid-template-columns: 1fr; }
 }
 

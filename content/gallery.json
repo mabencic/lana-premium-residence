@@ -1,6 +1,22 @@
 {
   "items": [
     {
+      "label": "Vanjski izgled",
+      "image": "images/vanjski-izgled.svg",
+      "alt": {
+        "hr": "Vanjski izgled zgrade",
+        "en": "Exterior of the building",
+        "de": "Außenansicht des Gebäudes",
+        "it": "Esterno dell'edificio"
+      },
+      "title": {
+        "hr": "Vanjski izgled",
+        "en": "Exterior",
+        "de": "Außenansicht",
+        "it": "Esterno"
+      }
+    },
+    {
       "label": "Bazen",
       "image": "images/bazen-1.jpg",
       "alt": {
