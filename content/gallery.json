@@ -23,7 +23,14 @@
         "de": "Schlafzimmer",
         "it": "Camera da letto"
       },
-      "more": []
+      "more": [
+        "images/spavaca-2.jpg",
+        "images/spavaca-3.jpg",
+        "images/spavaca-4.jpg",
+        "images/spavaca-5.jpg",
+        "images/spavaca-6.jpg",
+        "images/spavaca-7.jpg"
+      ]
     },
     {
       "label": "Kuhinja",
