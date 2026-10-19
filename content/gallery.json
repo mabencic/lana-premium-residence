@@ -20,6 +20,38 @@
         "images/vanjski-3.jpg",
         "images/vanjski-4.jpg",
         "images/vanjski-5.jpg"
+      ],
+      "photo_alts": [
+        {
+          "hr": "Zgrada apartmana s balkonima i travnjakom po danu",
+          "en": "Apartment building with balconies and lawn by day",
+          "de": "Apartmenthaus mit Balkonen und Rasen bei Tag",
+          "it": "Edificio degli appartamenti con balconi e prato, di giorno"
+        },
+        {
+          "hr": "Zgrada apartmana s travnjakom i natpisom Lana Premium Residence",
+          "en": "Apartment building with lawn and the Lana Premium Residence sign",
+          "de": "Apartmenthaus mit Rasen und dem Schild Lana Premium Residence",
+          "it": "Edificio con prato e insegna Lana Premium Residence"
+        },
+        {
+          "hr": "Ulaz i vanjske stepenice zgrade među maslinama",
+          "en": "Entrance and outdoor staircase of the building among olive trees",
+          "de": "Eingang und Außentreppe des Gebäudes zwischen Olivenbäumen",
+          "it": "Ingresso e scala esterna dell'edificio tra gli ulivi"
+        },
+        {
+          "hr": "Osvijetljeni balkoni zgrade apartmana u večernjim satima",
+          "en": "Illuminated balconies of the apartment building in the evening",
+          "de": "Beleuchtete Balkone des Apartmenthauses am Abend",
+          "it": "Balconi illuminati dell'edificio degli appartamenti di sera"
+        },
+        {
+          "hr": "Večernje osvjetljenje maslina i stepenica uz zgradu",
+          "en": "Evening lighting of the olive trees and staircase by the building",
+          "de": "Abendbeleuchtung der Olivenbäume und der Treppe am Gebäude",
+          "it": "Illuminazione serale degli ulivi e della scala accanto all'edificio"
+        }
       ]
     },
     {
@@ -40,7 +72,27 @@
         "en": "Pool",
         "de": "Pool",
         "it": "Piscina"
-      }
+      },
+      "photo_alts": [
+        {
+          "hr": "Bazen s palmama i ležaljkama u okruženju zelenila",
+          "en": "Pool with palm trees and sun loungers surrounded by greenery",
+          "de": "Pool mit Palmen und Liegen inmitten von Grün",
+          "it": "Piscina con palme e lettini immersa nel verde"
+        },
+        {
+          "hr": "Natkrivena terasa uz bazen s ležaljkama i suncobranima",
+          "en": "Covered terrace by the pool with sun loungers and parasols",
+          "de": "Überdachte Terrasse am Pool mit Liegen und Sonnenschirmen",
+          "it": "Terrazza coperta a bordo piscina con lettini e ombrelloni"
+        },
+        {
+          "hr": "Bazen s kamenom oplatom i ležaljkama pod suncobranima",
+          "en": "Pool with stone paving and sun loungers under parasols",
+          "de": "Pool mit Steinplatten und Liegen unter Sonnenschirmen",
+          "it": "Piscina con pavimentazione in pietra e lettini sotto gli ombrelloni"
+        }
+      ]
     },
     {
       "label": "Spavaća soba",
@@ -64,7 +116,51 @@
         "en": "Bedroom",
         "de": "Schlafzimmer",
         "it": "Camera da letto"
-      }
+      },
+      "photo_alts": [
+        {
+          "hr": "Spavaća soba s bračnim krevetom i žutim prekrivačem",
+          "en": "Bedroom with a double bed and a yellow bedspread",
+          "de": "Schlafzimmer mit Doppelbett und gelber Tagesdecke",
+          "it": "Camera da letto con letto matrimoniale e copriletto giallo"
+        },
+        {
+          "hr": "Bračni krevet s ručnicima, ormar i klima-uređaj",
+          "en": "Double bed with towels, wardrobe and air conditioning",
+          "de": "Doppelbett mit Handtüchern, Kleiderschrank und Klimaanlage",
+          "it": "Letto matrimoniale con asciugamani, armadio e aria condizionata"
+        },
+        {
+          "hr": "Spavaća soba s ružičastim prekrivačem i prozorom",
+          "en": "Bedroom with a pink bedspread and a window",
+          "de": "Schlafzimmer mit rosa Tagesdecke und Fenster",
+          "it": "Camera da letto con copriletto rosa e finestra"
+        },
+        {
+          "hr": "Spavaća soba s ormarom, televizorom i klima-uređajem",
+          "en": "Bedroom with wardrobe, TV and air conditioning",
+          "de": "Schlafzimmer mit Kleiderschrank, Fernseher und Klimaanlage",
+          "it": "Camera da letto con armadio, TV e aria condizionata"
+        },
+        {
+          "hr": "Noćni ormarić uz krevet s utičnicama i svijećom",
+          "en": "Bedside table with power sockets and a candle",
+          "de": "Nachttisch mit Steckdosen und Kerze",
+          "it": "Comodino con prese di corrente e una candela"
+        },
+        {
+          "hr": "Detalj noćnog ormarića s knjigama i svijećom",
+          "en": "Detail of a bedside table with books and a candle",
+          "de": "Detail eines Nachttischs mit Büchern und Kerze",
+          "it": "Dettaglio di un comodino con libri e una candela"
+        },
+        {
+          "hr": "Odraz spavaće sobe u okruglom ogledalu",
+          "en": "Reflection of the bedroom in a round mirror",
+          "de": "Spiegelbild des Schlafzimmers in einem runden Spiegel",
+          "it": "Riflesso della camera da letto in uno specchio rotondo"
+        }
+      ]
     },
     {
       "label": "Kuhinja",
@@ -83,7 +179,21 @@
         "en": "Kitchen",
         "de": "Küche",
         "it": "Cucina"
-      }
+      },
+      "photo_alts": [
+        {
+          "hr": "Kuhinja s blagovaonskim stolom i televizorom",
+          "en": "Kitchenette with dining table and TV",
+          "de": "Küchenzeile mit Esstisch und Fernseher",
+          "it": "Angolo cottura con tavolo da pranzo e TV"
+        },
+        {
+          "hr": "Kuhinja i dnevni boravak s kauč-krevetom i ulazom u apartman",
+          "en": "Kitchenette and living area with sofa bed and the apartment entrance",
+          "de": "Küchenzeile und Wohnbereich mit Schlafsofa und Wohnungseingang",
+          "it": "Angolo cottura e zona giorno con divano letto e ingresso dell'appartamento"
+        }
+      ]
     },
     {
       "label": "Terasa",
@@ -104,6 +214,32 @@
         "images/terasa-2.jpg",
         "images/terasa-3.jpg",
         "images/terasa-4.jpg"
+      ],
+      "photo_alts": [
+        {
+          "hr": "Terasa sa stolom, stolicama i pogledom na livadu",
+          "en": "Terrace with table, chairs and a view of the meadow",
+          "de": "Terrasse mit Tisch, Stühlen und Blick auf die Wiese",
+          "it": "Terrazza con tavolo, sedie e vista sul prato"
+        },
+        {
+          "hr": "Natkrivena terasa sa stolom i ogradom, pogled na živicu",
+          "en": "Covered terrace with table and railing, overlooking the hedge",
+          "de": "Überdachte Terrasse mit Tisch und Geländer, Blick auf die Hecke",
+          "it": "Terrazza coperta con tavolo e ringhiera, vista sulla siepe"
+        },
+        {
+          "hr": "Detalj stola na terasi s biljkom i zelenilom u pozadini",
+          "en": "Detail of the terrace table with a plant and greenery behind",
+          "de": "Detail des Terrassentisches mit Pflanze und Grün im Hintergrund",
+          "it": "Dettaglio del tavolo sulla terrazza con una pianta e il verde sullo sfondo"
+        },
+        {
+          "hr": "Detalj stola i stolica na terasi s biljkom",
+          "en": "Detail of the terrace table and chairs with a plant",
+          "de": "Detail von Terrassentisch und Stühlen mit Pflanze",
+          "it": "Dettaglio del tavolo e delle sedie sulla terrazza con una pianta"
+        }
       ]
     },
     {
@@ -123,6 +259,20 @@
       },
       "more": [
         "images/teniski-2.jpg"
+      ],
+      "photo_alts": [
+        {
+          "hr": "Teniski tereni sa zemljanom podlogom uz bazen i zgradu apartmana, pogled iz zraka",
+          "en": "Clay tennis courts next to the pool and the apartment building, aerial view",
+          "de": "Tennisplätze mit Sandbelag neben Pool und Apartmenthaus, Luftaufnahme",
+          "it": "Campi da tennis in terra battuta accanto alla piscina e all'edificio, veduta aerea"
+        },
+        {
+          "hr": "Kompleks s teniskim terenima, bazenom i zgradom apartmana, pogled iz zraka",
+          "en": "Complex with tennis courts, pool and apartment building, aerial view",
+          "de": "Anlage mit Tennisplätzen, Pool und Apartmenthaus, Luftaufnahme",
+          "it": "Complesso con campi da tennis, piscina ed edificio degli appartamenti, veduta aerea"
+        }
       ]
     },
     {
@@ -145,6 +295,38 @@
         "images/zrak-3.jpg",
         "images/zrak-4.jpg",
         "images/zrak-5.jpg"
+      ],
+      "photo_alts": [
+        {
+          "hr": "Večernji pogled iz zraka na zgradu apartmana, teniske terene i bazen",
+          "en": "Evening aerial view of the apartment building, tennis courts and pool",
+          "de": "Abendliche Luftaufnahme von Apartmenthaus, Tennisplätzen und Pool",
+          "it": "Veduta aerea serale dell'edificio, dei campi da tennis e della piscina"
+        },
+        {
+          "hr": "Pogled iz zraka na pročelje zgrade apartmana s balkonima, po danu",
+          "en": "Aerial view of the apartment building front with balconies, by day",
+          "de": "Luftaufnahme der Fassade des Apartmenthauses mit Balkonen bei Tag",
+          "it": "Veduta aerea della facciata dell'edificio con balconi, di giorno"
+        },
+        {
+          "hr": "Pogled ravno odozgo na bazen, zgradu apartmana i teniske terene",
+          "en": "Top-down view of the pool, apartment building and tennis courts",
+          "de": "Blick direkt von oben auf Pool, Apartmenthaus und Tennisplätze",
+          "it": "Veduta dall'alto di piscina, edificio degli appartamenti e campi da tennis"
+        },
+        {
+          "hr": "Večernji pogled iz zraka na osvijetljenu zgradu i bazen",
+          "en": "Evening aerial view of the illuminated building and pool",
+          "de": "Abendliche Luftaufnahme des beleuchteten Gebäudes und des Pools",
+          "it": "Veduta aerea serale dell'edificio illuminato e della piscina"
+        },
+        {
+          "hr": "Teniski tereni i bazen u sumrak, pogled iz zraka",
+          "en": "Tennis courts and pool at dusk, aerial view",
+          "de": "Tennisplätze und Pool in der Dämmerung, Luftaufnahme",
+          "it": "Campi da tennis e piscina al crepuscolo, veduta aerea"
+        }
       ]
     }
   ]

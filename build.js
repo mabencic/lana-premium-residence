@@ -113,12 +113,17 @@ function renderPage(lang) {
     .map((g, i) => {
       const alt = (g.alt && (g.alt[lang] || g.alt[defaultLang])) || '';
       const more = Array.isArray(g.more) ? g.more.filter(Boolean) : [];
-      lightboxData['g' + i] = [g.image, ...more].map((p) => ({ src: img(p), alt }));
+      const gAlts = Array.isArray(g.photo_alts) ? g.photo_alts : [];
+      const photoAlt = (n) => {
+        const e = gAlts[n];
+        return (e && (e[lang] || e[defaultLang])) || alt;
+      };
+      lightboxData['g' + i] = [g.image, ...more].map((p, n) => ({ src: img(p), alt: photoAlt(n) }));
       const title = (g.title && (g.title[lang] || g.title[defaultLang])) || '';
       const badge = more.length ? `<span class="g__more" aria-hidden="true">+${more.length}</span>` : '';
       const cap = title ? `<span class="g__cap">${esc(title)}</span>` : '';
       const label = more.length ? `${alt} (${t.lightbox.open})` : alt;
-      return `<figure class="g g--${i < 6 ? i + 1 : 7}"><button type="button" class="g__btn" data-lb="g${i}" aria-label="${esc(label)}" aria-haspopup="dialog"><img src="${esc(img(g.image))}" alt="${esc(alt)}" loading="lazy" width="900" height="700">${cap}${badge}</button></figure>`;
+      return `<figure class="g g--${i < 6 ? i + 1 : 7}"><button type="button" class="g__btn" data-lb="g${i}" aria-label="${esc(label)}" aria-haspopup="dialog"><img src="${esc(img(g.image))}" alt="${esc(photoAlt(0))}" loading="lazy" width="900" height="700">${cap}${badge}</button></figure>`;
     })
     .join('');
 
