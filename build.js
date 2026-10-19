@@ -98,10 +98,15 @@ function renderPage(lang) {
     .map((a) => `<li><h3>${esc(pick(a, lang, 'title'))}</h3><p>${esc(pick(a, lang, 'text'))}</p></li>`)
     .join('');
 
+  const galleryData = [];
   const galleryItems = gallery
     .map((g, i) => {
       const alt = (g.alt && (g.alt[lang] || g.alt[defaultLang])) || '';
-      return `<figure class="g g--${(i % 6) + 1}"><img src="${esc(img(g.image))}" alt="${esc(alt)}" loading="lazy" width="900" height="700"></figure>`;
+      const more = Array.isArray(g.more) ? g.more.filter(Boolean) : [];
+      galleryData.push([g.image, ...more].map((p) => ({ src: img(p), alt })));
+      const badge = more.length ? `<span class="g__more" aria-hidden="true">+${more.length}</span>` : '';
+      const label = more.length ? `${alt} (${t.lightbox.open})` : alt;
+      return `<figure class="g g--${(i % 6) + 1}"><button type="button" class="g__btn" data-g="${i}" aria-label="${esc(label)}" aria-haspopup="dialog"><img src="${esc(img(g.image))}" alt="${esc(alt)}" loading="lazy" width="900" height="700">${badge}</button></figure>`;
     })
     .join('');
 
@@ -254,11 +259,59 @@ function renderPage(lang) {
     <p>${esc(site.address)}</p>
   </footer>
 
+  <dialog id="lightbox" class="lb" aria-label="${esc(t.gallery)}">
+    <button type="button" class="lb__close" aria-label="${esc(t.lightbox.close)}">&times;</button>
+    <button type="button" class="lb__nav lb__prev" aria-label="${esc(t.lightbox.prev)}">&#8249;</button>
+    <img class="lb__img" alt="">
+    <button type="button" class="lb__nav lb__next" aria-label="${esc(t.lightbox.next)}">&#8250;</button>
+    <p class="lb__count" aria-live="polite"></p>
+  </dialog>
+
   <script src="/vendor/flatpickr/flatpickr.min.js"></script>
   ${current.code !== 'en' ? `<script src="/vendor/flatpickr/l10n/${current.code}.js"></script>` : ''}
   <script>
     (function () {
       var form = document.getElementById('enquiry');
+      // Galerija: klik otvara fotografiju, a ako ih ima više, listaju se strelicama, tipkama ili prstom.
+      var photos = ${js(galleryData)};
+      var ofWord = ${js(t.lightbox.of)};
+      var lb = document.getElementById('lightbox');
+      if (lb && lb.showModal) {
+        var lbImg = lb.querySelector('.lb__img');
+        var lbCount = lb.querySelector('.lb__count');
+        var set = [], pos = 0, startX = null;
+        var show = function (n) {
+          pos = (n + set.length) % set.length;
+          lbImg.src = set[pos].src;
+          lbImg.alt = set[pos].alt;
+          lbCount.textContent = set.length > 1 ? (pos + 1) + ' ' + ofWord + ' ' + set.length : '';
+          if (set.length > 1) { var nx = new Image(); nx.src = set[(pos + 1) % set.length].src; }
+        };
+        document.querySelectorAll('.g__btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            set = photos[+btn.getAttribute('data-g')] || [];
+            if (!set.length) return;
+            lb.classList.toggle('lb--single', set.length < 2);
+            show(0);
+            lb.showModal();
+          });
+        });
+        lb.querySelector('.lb__prev').addEventListener('click', function () { show(pos - 1); });
+        lb.querySelector('.lb__next').addEventListener('click', function () { show(pos + 1); });
+        lb.querySelector('.lb__close').addEventListener('click', function () { lb.close(); });
+        lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+        lb.addEventListener('keydown', function (e) {
+          if (set.length < 2) return;
+          if (e.key === 'ArrowLeft') { e.preventDefault(); show(pos - 1); }
+          if (e.key === 'ArrowRight') { e.preventDefault(); show(pos + 1); }
+        });
+        lb.addEventListener('touchstart', function (e) { startX = e.changedTouches[0].clientX; }, { passive: true });
+        lb.addEventListener('touchend', function (e) {
+          if (startX === null || set.length < 2) return;
+          var dx = e.changedTouches[0].clientX - startX; startX = null;
+          if (Math.abs(dx) > 50) show(dx < 0 ? pos + 1 : pos - 1);
+        }, { passive: true });
+      }
       var picker = null;
       if (window.flatpickr) {
         picker = flatpickr('#dates', {

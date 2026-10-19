@@ -142,7 +142,14 @@ const config = {
               summary: '{{fields.label}}',
               fields: [
                 editLabel,
-                image('Fotografija', 'image'),
+                image('Fotografija (naslovna, vidi se u galeriji)', 'image'),
+                {
+                  label: 'Dodatne fotografije (otvaraju se klikom na naslovnu i listaju se)',
+                  name: 'more',
+                  widget: 'list',
+                  required: false,
+                  field: image('Fotografija', 'photo'),
+                },
                 {
                   label: 'Opis fotografije po jezicima',
                   name: 'alt',
