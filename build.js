@@ -82,7 +82,7 @@ function renderPage(lang) {
       const note = pick(a, lang, 'count_note');
       return `
       <article class="apt">
-        <div class="arch apt__img"><img src="${esc(img(a.image))}" alt="${esc(pick(a, lang, 'image_alt'))}" loading="lazy" width="800" height="1000"></div>
+        <div class="arch apt__img"><img src="${esc(img(a.image))}" alt="${esc(pick(a, lang, 'image_alt'))}" loading="lazy" width="1500" height="1000"></div>
         <div class="apt__body">
           <h3>${esc(pick(a, lang, 'name'))}</h3>
           ${note ? `<p class="apt__note">${esc(note)}</p>` : ''}

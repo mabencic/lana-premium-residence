@@ -108,8 +108,8 @@ p { margin: 0 0 1rem; max-width: 62ch; }
 
 /* Apartmani */
 .apts { display: grid; gap: 3rem; }
-.apt { display: grid; grid-template-columns: minmax(0, 22rem) 1fr; gap: clamp(1.5rem, 5vw, 4rem); align-items: center; }
-.apt__img { aspect-ratio: 4 / 5; }
+.apt { display: grid; grid-template-columns: minmax(0, 34rem) 1fr; gap: clamp(1.5rem, 5vw, 4rem); align-items: center; }
+.apt__img { aspect-ratio: 3 / 2; border-radius: .5rem; box-shadow: 0 20px 50px -28px rgba(12,50,56,.45); }
 .apt__note { color: var(--sea); font-weight: 600; margin: .5rem 0 1rem; }
 .chips { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; margin: 1.25rem 0 1.75rem; }
 .chips li { border: 1px solid var(--line); background: #fff; padding: .3rem .85rem; border-radius: 999px; font-size: .92rem; }
@@ -172,7 +172,6 @@ details p { margin: .75rem 0 0; color: var(--muted); }
 @media (max-width: 860px) {
   .brand { font-size: 1.2rem; white-space: normal; line-height: 1.1; }
   .hero, .apt, .loc, .contact { grid-template-columns: 1fr; }
-  .apt__img { max-width: 22rem; }
   .gallery { grid-template-columns: repeat(2, 1fr); }
   .g--1 { grid-column: span 2; grid-row: auto; }
   .g--1 img { aspect-ratio: 4 / 3; min-height: 0; }
