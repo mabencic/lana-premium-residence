@@ -1,4 +1,4 @@
-// Jezici i tekstovi sučelja (izbornik, gumbi, obrazac). Tekstovi sadržaja uređuju se u CMS-u.
+// Jezici i tekstovi sučelja (izbornik, gumbi, obrazac). Tekstovi sadržaja nalaze se u mapi content/.
 const defaultLang = 'hr';
 
 const languages = [

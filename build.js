@@ -371,7 +371,7 @@ function renderPage(lang) {
 fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(dist, { recursive: true });
 
-for (const dir of ['css', 'images', 'admin', 'vendor']) {
+for (const dir of ['css', 'images', 'vendor']) {
   const src = path.join(root, dir);
   if (fs.existsSync(src)) fs.cpSync(src, path.join(dist, dir), { recursive: true });
 }
@@ -384,7 +384,7 @@ for (const l of languages) {
 
 fs.writeFileSync(
   path.join(dist, 'robots.txt'),
-  `User-agent: *\nAllow: /\nDisallow: /admin/\n${baseUrl ? `Sitemap: ${baseUrl}/sitemap.xml\n` : ''}`
+  `User-agent: *\nAllow: /\n${baseUrl ? `Sitemap: ${baseUrl}/sitemap.xml\n` : ''}`
 );
 
 if (baseUrl) {
