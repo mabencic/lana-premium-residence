@@ -69,6 +69,68 @@
         "images/apartman-10.jpg",
         "images/apartman-11.jpg",
         "images/apartman-12.jpg"
+      ],
+      "photo_alts": [
+        {
+          "hr": "Dnevni boravak s kuhinjom, kauč-krevetom i izlazom na terasu",
+          "en": "Living area with kitchenette, sofa bed and access to the terrace",
+          "de": "Wohnbereich mit Küchenzeile, Schlafsofa und Zugang zur Terrasse",
+          "it": "Zona giorno con angolo cottura, divano letto e accesso alla terrazza"
+        },
+        {
+          "hr": "Dnevni boravak s kauč-krevetom, blagovaonskim stolom i pogledom na zelenilo",
+          "en": "Living area with sofa bed, dining table and a view of the greenery",
+          "de": "Wohnbereich mit Schlafsofa, Esstisch und Blick ins Grüne",
+          "it": "Zona giorno con divano letto, tavolo da pranzo e vista sul verde"
+        },
+        {
+          "hr": "Kauč-krevet i dnevni boravak s pogledom kroz stakleni zid na terasu",
+          "en": "Sofa bed and living area with a view through the glass wall to the terrace",
+          "de": "Schlafsofa und Wohnbereich mit Blick durch die Glasfront auf die Terrasse",
+          "it": "Divano letto e zona giorno con vista sulla terrazza attraverso la vetrata"
+        },
+        {
+          "hr": "Blagovaonski stol, televizor i klizna vrata prema terasi",
+          "en": "Dining table, TV and sliding doors to the terrace",
+          "de": "Esstisch, Fernseher und Schiebetüren zur Terrasse",
+          "it": "Tavolo da pranzo, TV e porte scorrevoli verso la terrazza"
+        },
+        {
+          "hr": "Dnevni boravak s kauč-krevetom i postavljenim blagovaonskim stolom",
+          "en": "Living area with sofa bed and a set dining table",
+          "de": "Wohnbereich mit Schlafsofa und gedecktem Esstisch",
+          "it": "Zona giorno con divano letto e tavolo da pranzo apparecchiato"
+        },
+        {
+          "hr": "Kuhinja i dnevni boravak s klima-uređajem i ulaznim vratima",
+          "en": "Kitchenette and living area with air conditioning and the entrance door",
+          "de": "Küchenzeile und Wohnbereich mit Klimaanlage und Eingangstür",
+          "it": "Angolo cottura e zona giorno con aria condizionata e porta d'ingresso"
+        },
+        {
+          "hr": "Blagovaonski stol s dekoracijom na zidu i televizorom",
+          "en": "Dining table with wall decoration and TV",
+          "de": "Esstisch mit Wanddekoration und Fernseher",
+          "it": "Tavolo da pranzo con decorazione a parete e TV"
+        },
+        {
+          "hr": "Aparat za kavu s kapsulama na drvenom pultu",
+          "en": "Coffee machine with capsules on a wooden countertop",
+          "de": "Kaffeemaschine mit Kapseln auf der Holzarbeitsplatte",
+          "it": "Macchina per il caffè con capsule sul piano in legno"
+        },
+        {
+          "hr": "Stolić s knjigama i svijećama u dnevnom boravku",
+          "en": "Coffee table with books and candles in the living area",
+          "de": "Couchtisch mit Büchern und Kerzen im Wohnbereich",
+          "it": "Tavolino con libri e candele nella zona giorno"
+        },
+        {
+          "hr": "Dekorativni sat u obliku natpisa HOME",
+          "en": "Decorative clock in the shape of the word HOME",
+          "de": "Dekorative Uhr in Form des Schriftzugs HOME",
+          "it": "Orologio decorativo a forma di scritta HOME"
+        }
       ]
     }
   ]

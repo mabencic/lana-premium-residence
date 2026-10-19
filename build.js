@@ -83,12 +83,17 @@ function renderPage(lang) {
       const note = pick(a, lang, 'count_note');
       const aAlt = pick(a, lang, 'image_alt');
       const aMore = Array.isArray(a.more) ? a.more.filter(Boolean) : [];
-      lightboxData['a' + i] = [a.image, ...aMore].map((p) => ({ src: img(p), alt: aAlt }));
+      const photoAlts = Array.isArray(a.photo_alts) ? a.photo_alts : [];
+      const photoAlt = (n) => {
+        const e = photoAlts[n];
+        return (e && (e[lang] || e[defaultLang])) || aAlt;
+      };
+      lightboxData['a' + i] = [a.image, ...aMore].map((p, n) => ({ src: img(p), alt: photoAlt(n) }));
       const aBadge = aMore.length ? `<span class="g__more" aria-hidden="true">+${aMore.length}</span>` : '';
       const aLabel = aMore.length ? `${aAlt} (${t.lightbox.open})` : aAlt;
       return `
       <article class="apt">
-        <div class="apt__img"><button type="button" class="g__btn" data-lb="a${i}" aria-label="${esc(aLabel)}" aria-haspopup="dialog"><img src="${esc(img(a.image))}" alt="${esc(aAlt)}" loading="lazy" width="1500" height="1000">${aBadge}</button></div>
+        <div class="apt__img"><button type="button" class="g__btn" data-lb="a${i}" aria-label="${esc(aLabel)}" aria-haspopup="dialog"><img src="${esc(img(a.image))}" alt="${esc(photoAlt(0))}" loading="lazy" width="1500" height="1000">${aBadge}</button></div>
         <div class="apt__body">
           <h3>${esc(pick(a, lang, 'name'))}</h3>
           ${note ? `<p class="apt__note">${esc(note)}</p>` : ''}
