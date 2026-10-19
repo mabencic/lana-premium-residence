@@ -1,6 +1,44 @@
 {
   "items": [
     {
+      "label": "Rezervacija",
+      "hr": {
+        "question": "Kako mogu rezervirati?",
+        "answer": "Pošaljite upit e-mailom ili porukom na WhatsApp s datumima dolaska i odlaska te brojem gostiju, a mi vam odgovaramo s dostupnošću i cijenom."
+      },
+      "en": {
+        "question": "How can I book?",
+        "answer": "Send an enquiry by email or a WhatsApp message with your arrival and departure dates and the number of guests, and we'll reply with availability and the price."
+      },
+      "de": {
+        "question": "Wie kann ich buchen?",
+        "answer": "Senden Sie uns eine Anfrage per E-Mail oder WhatsApp mit An- und Abreisedatum sowie der Zahl der Gäste, wir antworten mit Verfügbarkeit und Preis."
+      },
+      "it": {
+        "question": "Come posso prenotare?",
+        "answer": "Inviateci una richiesta via e-mail o WhatsApp con le date di arrivo e partenza e il numero di ospiti, vi risponderemo con disponibilità e prezzo."
+      }
+    },
+    {
+      "label": "Otkazivanje",
+      "hr": {
+        "question": "Koja je vaša politika otkazivanja?",
+        "answer": "Za izravne rezervacije možete besplatno otkazati do 7 dana prije dolaska."
+      },
+      "en": {
+        "question": "What is your cancellation policy?",
+        "answer": "For direct bookings, you can cancel free of charge up to 7 days before arrival."
+      },
+      "de": {
+        "question": "Wie lauten Ihre Stornierungsbedingungen?",
+        "answer": "Bei Direktbuchungen können Sie bis 7 Tage vor der Anreise kostenlos stornieren."
+      },
+      "it": {
+        "question": "Qual è la vostra politica di cancellazione?",
+        "answer": "Per le prenotazioni dirette potete cancellare gratuitamente fino a 7 giorni prima dell'arrivo."
+      }
+    },
+    {
       "label": "Prijava i odjava",
       "hr": {
         "question": "U koje vrijeme je prijava i odjava?",
@@ -58,6 +96,25 @@
       }
     },
     {
+      "label": "Kućni ljubimci",
+      "hr": {
+        "question": "Jesu li kućni ljubimci dozvoljeni?",
+        "answer": "Nažalost, kućni ljubimci nisu dozvoljeni."
+      },
+      "en": {
+        "question": "Are pets allowed?",
+        "answer": "Unfortunately, pets are not allowed."
+      },
+      "de": {
+        "question": "Sind Haustiere erlaubt?",
+        "answer": "Leider sind Haustiere nicht erlaubt."
+      },
+      "it": {
+        "question": "Gli animali domestici sono ammessi?",
+        "answer": "Purtroppo gli animali domestici non sono ammessi."
+      }
+    },
+    {
       "label": "Parking",
       "hr": {
         "question": "Ima li parkinga?",
@@ -93,44 +150,6 @@
       "it": {
         "question": "La piscina è aperta tutto l'anno?",
         "answer": "La piscina è stagionale. Per le date esatte di apertura inviateci una richiesta."
-      }
-    },
-    {
-      "label": "Rezervacija",
-      "hr": {
-        "question": "Kako mogu rezervirati?",
-        "answer": "Pošaljite upit e-mailom ili porukom na WhatsApp s datumima dolaska i odlaska te brojem gostiju, a mi vam odgovaramo s dostupnošću i cijenom."
-      },
-      "en": {
-        "question": "How can I book?",
-        "answer": "Send an enquiry by email or a WhatsApp message with your arrival and departure dates and the number of guests, and we'll reply with availability and the price."
-      },
-      "de": {
-        "question": "Wie kann ich buchen?",
-        "answer": "Senden Sie uns eine Anfrage per E-Mail oder WhatsApp mit An- und Abreisedatum sowie der Zahl der Gäste, wir antworten mit Verfügbarkeit und Preis."
-      },
-      "it": {
-        "question": "Come posso prenotare?",
-        "answer": "Inviateci una richiesta via e-mail o WhatsApp con le date di arrivo e partenza e il numero di ospiti, vi risponderemo con disponibilità e prezzo."
-      }
-    },
-    {
-      "label": "Otkazivanje",
-      "hr": {
-        "question": "Koja je vaša politika otkazivanja?",
-        "answer": "Za izravne rezervacije možete besplatno otkazati do 7 dana prije dolaska."
-      },
-      "en": {
-        "question": "What is your cancellation policy?",
-        "answer": "For direct bookings, you can cancel free of charge up to 7 days before arrival."
-      },
-      "de": {
-        "question": "Wie lauten Ihre Stornierungsbedingungen?",
-        "answer": "Bei Direktbuchungen können Sie bis 7 Tage vor der Anreise kostenlos stornieren."
-      },
-      "it": {
-        "question": "Qual è la vostra politica di cancellazione?",
-        "answer": "Per le prenotazioni dirette potete cancellare gratuitamente fino a 7 giorni prima dell'arrivo."
       }
     }
   ]
