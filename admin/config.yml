@@ -420,9 +420,17 @@ collections:
               - label: "Naziv za uređivanje (ne prikazuje se na stranici)"
                 name: "label"
                 widget: "string"
-              - label: "Fotografija"
+              - label: "Fotografija (naslovna, vidi se u galeriji)"
                 name: "image"
                 widget: "image"
+              - label: "Dodatne fotografije (otvaraju se klikom na naslovnu i listaju se)"
+                name: "more"
+                widget: "list"
+                required: false
+                field:
+                  label: "Fotografija"
+                  name: "photo"
+                  widget: "image"
               - label: "Opis fotografije po jezicima"
                 name: "alt"
                 widget: "object"
