@@ -9,7 +9,10 @@
         "de": "Pool mit Liegen",
         "it": "Piscina con lettini"
       },
-      "more": []
+      "more": [
+        "images/bazen-2.jpg",
+        "images/bazen-3.jpg"
+      ]
     },
     {
       "label": "Spavaća soba",
