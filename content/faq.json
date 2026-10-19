@@ -39,6 +39,25 @@
       }
     },
     {
+      "label": "Djeca i dječji krevetić",
+      "hr": {
+        "question": "Kakva je vaša politika za djecu i dodatne krevete?",
+        "answer": "Djeca su dobrodošla. Dječji krevetić dostupan je na zahtjev i ne naplaćujemo ga."
+      },
+      "en": {
+        "question": "What is your policy on children and extra beds?",
+        "answer": "Children are welcome. A baby cot is available on request, free of charge."
+      },
+      "de": {
+        "question": "Wie handhaben Sie Kinder und Zustellbetten?",
+        "answer": "Kinder sind herzlich willkommen. Ein Babybett steht auf Anfrage kostenlos zur Verfügung."
+      },
+      "it": {
+        "question": "Qual è la vostra politica per i bambini e i letti aggiuntivi?",
+        "answer": "I bambini sono i benvenuti. Un lettino per bambini è disponibile su richiesta, senza costi aggiuntivi."
+      }
+    },
+    {
       "label": "Parking",
       "hr": {
         "question": "Ima li parkinga?",
