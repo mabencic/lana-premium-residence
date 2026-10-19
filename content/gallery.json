@@ -78,7 +78,11 @@
         "de": "Terrasse",
         "it": "Terrazza"
       },
-      "more": []
+      "more": [
+        "images/terasa-2.jpg",
+        "images/terasa-3.jpg",
+        "images/terasa-4.jpg"
+      ]
     },
     {
       "label": "Teniski teren",
