@@ -34,13 +34,16 @@
     },
     {
       "label": "Kuhinja",
-      "image": "images/gallery-3.svg",
+      "image": "images/kuhinja-1.jpg",
       "alt": {
         "hr": "Kuhinja i blagovaonica",
         "en": "Kitchen and dining area",
         "de": "Küche und Essbereich",
         "it": "Cucina e zona pranzo"
-      }
+      },
+      "more": [
+        "images/kuhinja-2.jpg"
+      ]
     },
     {
       "label": "Terasa",
