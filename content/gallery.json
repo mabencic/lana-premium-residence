@@ -86,7 +86,7 @@
     },
     {
       "label": "Teniski teren",
-      "image": "images/gallery-5.svg",
+      "image": "images/teniski-1.jpg",
       "alt": {
         "hr": "Teniski teren",
         "en": "Tennis court",
@@ -98,7 +98,10 @@
         "en": "Tennis court",
         "de": "Tennisplatz",
         "it": "Campo da tennis"
-      }
+      },
+      "more": [
+        "images/teniski-2.jpg"
+      ]
     },
     {
       "label": "Pogled iz zraka",
