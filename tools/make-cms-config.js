@@ -158,6 +158,13 @@ const config = {
                   field: image('Fotografija', 'photo'),
                 },
                 {
+                  label: 'Naslov na naslovnoj fotografiji u galeriji (npr. Bazen)',
+                  name: 'title',
+                  widget: 'object',
+                  collapsed: false,
+                  fields: LANGS.map(([code, label], i) => str(label, code, { required: i === 0 })),
+                },
+                {
                   label: 'Opis fotografije po jezicima',
                   name: 'alt',
                   widget: 'object',

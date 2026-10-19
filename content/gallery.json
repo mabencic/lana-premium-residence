@@ -12,7 +12,13 @@
       "more": [
         "images/bazen-2.jpg",
         "images/bazen-3.jpg"
-      ]
+      ],
+      "title": {
+        "hr": "Bazen",
+        "en": "Pool",
+        "de": "Pool",
+        "it": "Piscina"
+      }
     },
     {
       "label": "Spavaća soba",
@@ -30,7 +36,13 @@
         "images/spavaca-5.jpg",
         "images/spavaca-6.jpg",
         "images/spavaca-7.jpg"
-      ]
+      ],
+      "title": {
+        "hr": "Spavaća soba",
+        "en": "Bedroom",
+        "de": "Schlafzimmer",
+        "it": "Camera da letto"
+      }
     },
     {
       "label": "Kuhinja",
@@ -43,7 +55,13 @@
       },
       "more": [
         "images/kuhinja-2.jpg"
-      ]
+      ],
+      "title": {
+        "hr": "Kuhinja",
+        "en": "Kitchen",
+        "de": "Küche",
+        "it": "Cucina"
+      }
     },
     {
       "label": "Terasa",
@@ -53,12 +71,24 @@
         "en": "Apartment terrace",
         "de": "Terrasse des Apartments",
         "it": "Terrazza dell'appartamento"
+      },
+      "title": {
+        "hr": "Terasa",
+        "en": "Terrace",
+        "de": "Terrasse",
+        "it": "Terrazza"
       }
     },
     {
       "label": "Teniski teren",
       "image": "images/gallery-5.svg",
       "alt": {
+        "hr": "Teniski teren",
+        "en": "Tennis court",
+        "de": "Tennisplatz",
+        "it": "Campo da tennis"
+      },
+      "title": {
         "hr": "Teniski teren",
         "en": "Tennis court",
         "de": "Tennisplatz",
@@ -73,6 +103,12 @@
         "en": "Aerial view of the complex",
         "de": "Luftaufnahme der Anlage",
         "it": "Veduta aerea del complesso"
+      },
+      "title": {
+        "hr": "Pogled iz zraka",
+        "en": "Aerial view",
+        "de": "Luftaufnahme",
+        "it": "Vista aerea"
       }
     }
   ]

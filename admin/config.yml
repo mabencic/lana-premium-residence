@@ -439,6 +439,27 @@ collections:
                   label: "Fotografija"
                   name: "photo"
                   widget: "image"
+              - label: "Naslov na naslovnoj fotografiji u galeriji (npr. Bazen)"
+                name: "title"
+                widget: "object"
+                collapsed: false
+                fields:
+                  - label: "Hrvatski (glavni jezik)"
+                    name: "hr"
+                    widget: "string"
+                    required: true
+                  - label: "English"
+                    name: "en"
+                    widget: "string"
+                    required: false
+                  - label: "Deutsch"
+                    name: "de"
+                    widget: "string"
+                    required: false
+                  - label: "Italiano"
+                    name: "it"
+                    widget: "string"
+                    required: false
               - label: "Opis fotografije po jezicima"
                 name: "alt"
                 widget: "object"
