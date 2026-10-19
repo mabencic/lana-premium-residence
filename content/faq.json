@@ -1,6 +1,25 @@
 {
   "items": [
     {
+      "label": "Prijava i odjava",
+      "hr": {
+        "question": "U koje vrijeme je prijava i odjava?",
+        "answer": "Prijava je od 15:00 do 22:00 sata, a odjava do 10:00 sati."
+      },
+      "en": {
+        "question": "What are the check-in and check-out times?",
+        "answer": "Check-in is from 3:00 pm to 10:00 pm, and check-out is by 10:00 am."
+      },
+      "de": {
+        "question": "Wann sind Check-in und Check-out?",
+        "answer": "Der Check-in ist von 15:00 bis 22:00 Uhr, der Check-out bis 10:00 Uhr."
+      },
+      "it": {
+        "question": "A che ora sono il check-in e il check-out?",
+        "answer": "Il check-in è dalle 15:00 alle 22:00, il check-out entro le 10:00."
+      }
+    },
+    {
       "label": "Broj osoba",
       "hr": {
         "question": "Koliko osoba stane u apartman?",
