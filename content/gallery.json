@@ -105,7 +105,7 @@
     },
     {
       "label": "Pogled iz zraka",
-      "image": "images/gallery-6.svg",
+      "image": "images/zrak-1.jpg",
       "alt": {
         "hr": "Pogled na kompleks iz zraka",
         "en": "Aerial view of the complex",
@@ -117,7 +117,13 @@
         "en": "Aerial view",
         "de": "Luftaufnahme",
         "it": "Vista aerea"
-      }
+      },
+      "more": [
+        "images/zrak-2.jpg",
+        "images/zrak-3.jpg",
+        "images/zrak-4.jpg",
+        "images/zrak-5.jpg"
+      ]
     }
   ]
 }
