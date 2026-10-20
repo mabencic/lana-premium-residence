@@ -235,34 +235,3 @@ details p { margin: .75rem 0 0; color: var(--muted); }
 .email-err, .form__err { color: #9b2c2c; font-size: .9rem; margin: .35rem 0 0; }
 .form__open { font-size: .95rem; color: var(--sea); font-weight: 600; text-underline-offset: 4px; }
 #ts-box { margin-top: .35rem; }
-
-/* Animacije (uključene samo kad preglednik to dopušta, vidi skriptu u zaglavlju) */
-.top { transition: box-shadow .3s, background .3s; }
-.top--scrolled { box-shadow: 0 10px 30px -18px rgba(12,50,56,.45); }
-.btn { transition: background .2s, color .2s, transform .2s, box-shadow .2s; }
-.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px -14px rgba(12,50,56,.6); }
-
-html.anim .about > *, html.anim .block > h2, html.anim .block > p, html.anim .apt, html.anim .amenities li,
-html.anim .g, html.anim .loc > *, html.anim .faq, html.anim .contact > * {
-  opacity: 0; transform: translateY(28px);
-  transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);
-}
-html.anim .in { opacity: 1 !important; transform: none !important; }
-
-html.anim .hero__text > * { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
-html.anim .hero__text > :nth-child(2) { animation-delay: .12s; }
-html.anim .hero__text > :nth-child(3) { animation-delay: .24s; }
-html.anim .hero__img { animation: heroIn 1.2s cubic-bezier(.2,.7,.2,1) both; }
-html.anim .hero__img img { transform: scale(1.1); will-change: transform; }
-@keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
-@keyframes heroIn { from { opacity: 0; transform: translateY(20px) scale(.98); } to { opacity: 1; transform: none; } }
-
-.lb[open] { animation: lbFade .3s ease; }
-.lb[open]::backdrop { animation: lbFade .3s ease; }
-.lb[open] .lb__img { animation: lbPop .4s cubic-bezier(.2,.7,.2,1); }
-@keyframes lbFade { from { opacity: 0; } to { opacity: 1; } }
-@keyframes lbPop { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: none; } }
-@media (prefers-reduced-motion: reduce) {
-  .lb[open], .lb[open]::backdrop, .lb[open] .lb__img { animation: none; }
-  .btn:hover { transform: none; }
-}
