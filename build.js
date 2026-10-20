@@ -35,8 +35,11 @@ const urlFor = (lang) => (lang === defaultLang ? '/' : `/${lang}/`);
 const telHref = 'tel:' + String(site.phone || '').replace(/[^\d+]/g, '');
 const waNumber = String(site.whatsapp || '').replace(/\D/g, '');
 const mapQuery = encodeURIComponent(site.address || '');
-const mapEmbed = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
-const mapLink = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
+const hasPin = site.map_lat && site.map_lng;
+const mapEmbed = hasPin
+  ? `https://www.google.com/maps?q=${encodeURIComponent(site.map_name || site.name || '')}&ll=${site.map_lat},${site.map_lng}&z=16&output=embed`
+  : `https://www.google.com/maps?q=${mapQuery}&output=embed`;
+const mapLink = site.map_link || `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
 
 function renderPage(lang) {
   const t = ui[lang];
