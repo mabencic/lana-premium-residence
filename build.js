@@ -173,6 +173,7 @@ function renderPage(lang) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/vendor/flatpickr/flatpickr.min.css">
+  <script>try{if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('anim')}catch(e){}</script>
   <link rel="stylesheet" href="/css/style.css">
   <script type="application/ld+json">${js(jsonLd)}</script>
   <script type="application/ld+json">${js(faqLd)}</script>
@@ -283,6 +284,38 @@ function renderPage(lang) {
     <p class="lb__count" aria-live="polite"></p>
   </dialog>
 
+  <script>
+    // Animacije pri listanju stranice: pojavljivanje sekcija, sjena izbornika i blagi pomak naslovne fotografije.
+    (function () {
+      var root = document.documentElement;
+      var top = document.querySelector('.top');
+      var heroImg = document.querySelector('.hero__img img');
+      var anim = root.classList.contains('anim');
+      var ticking = false;
+      var update = function () {
+        ticking = false;
+        var y = window.pageYOffset || 0;
+        if (top) top.classList.toggle('top--scrolled', y > 8);
+        if (anim && heroImg && y < 1400) heroImg.style.transform = 'translate3d(0,' + (y * 0.06).toFixed(1) + 'px,0) scale(1.1)';
+      };
+      window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+      update();
+      if (!anim) return;
+      var sel = '.about > *, .block > h2, .block > p, .apt, .amenities li, .g, .loc > *, .faq, .contact > *';
+      var els = document.querySelectorAll(sel);
+      var io = new IntersectionObserver(function (entries) {
+        var n = 0;
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          en.target.style.transitionDelay = Math.min(n * 0.09, 0.45) + 's';
+          en.target.classList.add('in');
+          io.unobserve(en.target);
+          n++;
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
   <script src="/vendor/flatpickr/flatpickr.min.js"></script>
   ${current.code !== 'en' ? `<script src="/vendor/flatpickr/l10n/${current.code}.js"></script>` : ''}
@@ -296,8 +329,10 @@ function renderPage(lang) {
         var lbImg = lb.querySelector('.lb__img');
         var lbCount = lb.querySelector('.lb__count');
         var set = [], pos = 0, startX = null;
-        var show = function (n) {
+        var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var show = function (n, dir) {
           pos = (n + set.length) % set.length;
+          if (dir && lb.open && !reduce && lbImg.animate) lbImg.animate([{ opacity: 0, transform: 'translateX(' + (dir * 36) + 'px)' }, { opacity: 1, transform: 'none' }], { duration: 320, easing: 'cubic-bezier(.2,.7,.2,1)' });
           lbImg.src = set[pos].src;
           lbImg.alt = set[pos].alt;
           lbCount.textContent = set.length > 1 ? (pos + 1) + ' / ' + set.length : '';
@@ -312,20 +347,20 @@ function renderPage(lang) {
             lb.showModal();
           });
         });
-        lb.querySelector('.lb__prev').addEventListener('click', function () { show(pos - 1); });
-        lb.querySelector('.lb__next').addEventListener('click', function () { show(pos + 1); });
+        lb.querySelector('.lb__prev').addEventListener('click', function () { show(pos - 1, -1); });
+        lb.querySelector('.lb__next').addEventListener('click', function () { show(pos + 1, 1); });
         lb.querySelector('.lb__close').addEventListener('click', function () { lb.close(); });
         lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
         lb.addEventListener('keydown', function (e) {
           if (set.length < 2) return;
-          if (e.key === 'ArrowLeft') { e.preventDefault(); show(pos - 1); }
-          if (e.key === 'ArrowRight') { e.preventDefault(); show(pos + 1); }
+          if (e.key === 'ArrowLeft') { e.preventDefault(); show(pos - 1, -1); }
+          if (e.key === 'ArrowRight') { e.preventDefault(); show(pos + 1, 1); }
         });
         lb.addEventListener('touchstart', function (e) { startX = e.changedTouches[0].clientX; }, { passive: true });
         lb.addEventListener('touchend', function (e) {
           if (startX === null || set.length < 2) return;
           var dx = e.changedTouches[0].clientX - startX; startX = null;
-          if (Math.abs(dx) > 50) show(dx < 0 ? pos + 1 : pos - 1);
+          if (Math.abs(dx) > 50) show(dx < 0 ? pos + 1 : pos - 1, dx < 0 ? 1 : -1);
         }, { passive: true });
       }
       var picker = null;
