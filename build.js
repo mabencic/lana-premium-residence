@@ -183,7 +183,7 @@ function renderPage(lang) {
 <body>
   <a class="skip" href="#content">${esc(t.skip)}</a>
   <header class="top">
-    <a class="brand" href="${urlFor(lang)}">${esc(site.name)}</a>
+    <a class="brand" href="${urlFor(lang)}"><img class="brand__mark" src="/images/logo-mark.svg" alt="" width="36" height="36"><span>${esc(site.name)}</span></a>
     <div class="top__right">
       <nav aria-label="${esc(t.navLabel)}">
         <a href="#apartments">${esc(t.nav.apartments)}</a>
