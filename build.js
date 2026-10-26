@@ -468,7 +468,7 @@ for (const l of languages) {
 
 fs.writeFileSync(
   path.join(dist, 'robots.txt'),
-  `User-agent: *\nAllow: /\n${baseUrl ? `Sitemap: ${baseUrl}/sitemap.xml\n` : ''}`
+  `User-agent: *\nAllow: /\nDisallow: /api/\n${baseUrl ? `Sitemap: ${baseUrl}/sitemap.xml\n` : ''}`
 );
 
 if (baseUrl) {
