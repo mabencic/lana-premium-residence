@@ -30,6 +30,7 @@ const ui = {
     contactIntro: 'Javite nam datume i broj gostiju, a odgovaramo s dostupnošću i cijenom.',
     bookOnline: 'Rezerviraj online',
     email: { show: "Prikaži e-mail adresu", checking: "Provjera…", error: "Provjera nije uspjela. Pokušajte ponovno ili nas nazovite.", open: "Otvori e-mail s pripremljenom porukom" },
+    consent: { label: "Kolačići", text: "Za mjerenje posjeta koristimo Google Analytics, koji sprema kolačiće. Uključuje se samo uz vaš pristanak.", accept: "Prihvaćam", decline: "Odbijam", settings: "Postavke kolačića" },
     form: {
       name: 'Ime i prezime', dates: 'Dolazak i odlazak', datesPlaceholder: 'Odaberite datume', arrival: 'Dolazak', departure: 'Odlazak', guests: 'Broj gostiju', message: 'Poruka',
       sendMail: 'Pošalji e-mailom', sendWhatsApp: 'Pošalji na WhatsApp',
@@ -59,6 +60,7 @@ const ui = {
     contactIntro: "Tell us your dates and number of guests and we'll reply with availability and prices.",
     bookOnline: 'Book online',
     email: { show: "Show email address", checking: "Checking…", error: "Verification failed. Please try again or call us.", open: "Open email with the prepared message" },
+    consent: { label: "Cookies", text: "We use Google Analytics, which stores cookies, to measure visits. It is switched on only with your consent.", accept: "Accept", decline: "Decline", settings: "Cookie settings" },
     form: {
       name: 'Full name', dates: 'Arrival and departure', datesPlaceholder: 'Select dates', arrival: 'Arrival', departure: 'Departure', guests: 'Number of guests', message: 'Message',
       sendMail: 'Send by email', sendWhatsApp: 'Send on WhatsApp',
@@ -88,6 +90,7 @@ const ui = {
     contactIntro: 'Teilen Sie uns Ihre Reisedaten und die Zahl der Gäste mit, wir antworten mit Verfügbarkeit und Preis.',
     bookOnline: 'Online buchen',
     email: { show: "E-Mail-Adresse anzeigen", checking: "Wird geprüft …", error: "Überprüfung fehlgeschlagen. Bitte versuchen Sie es erneut oder rufen Sie uns an.", open: "E-Mail mit vorbereiteter Nachricht öffnen" },
+    consent: { label: "Cookies", text: "Zur Messung der Besuche verwenden wir Google Analytics, das Cookies speichert. Es wird nur mit Ihrer Einwilligung aktiviert.", accept: "Akzeptieren", decline: "Ablehnen", settings: "Cookie-Einstellungen" },
     form: {
       name: 'Vor- und Nachname', dates: 'Anreise und Abreise', datesPlaceholder: 'Daten auswählen', arrival: 'Anreise', departure: 'Abreise', guests: 'Anzahl der Gäste', message: 'Nachricht',
       sendMail: 'Per E-Mail senden', sendWhatsApp: 'Per WhatsApp senden',
@@ -117,6 +120,7 @@ const ui = {
     contactIntro: 'Indicateci le date e il numero di ospiti, vi risponderemo con disponibilità e prezzo.',
     bookOnline: 'Prenota online',
     email: { show: "Mostra l'indirizzo e-mail", checking: "Verifica in corso…", error: "Verifica non riuscita. Riprovate o chiamateci.", open: "Apri l'e-mail con il messaggio preparato" },
+    consent: { label: "Cookie", text: "Per misurare le visite usiamo Google Analytics, che salva dei cookie. Si attiva solo con il vostro consenso.", accept: "Accetto", decline: "Rifiuto", settings: "Impostazioni dei cookie" },
     form: {
       name: 'Nome e cognome', dates: 'Arrivo e partenza', datesPlaceholder: 'Seleziona le date', arrival: 'Arrivo', departure: 'Partenza', guests: "Numero di ospiti", message: 'Messaggio',
       sendMail: 'Invia via e-mail', sendWhatsApp: 'Invia su WhatsApp',

@@ -276,7 +276,16 @@ function renderPage(lang) {
   <footer class="foot">
     <p>&copy; ${new Date().getFullYear()} ${esc(site.name)}</p>
     <p>${esc(site.address)}</p>
+    ${site.ga_measurement_id ? `<p><button type="button" class="linklike" id="cookie-settings">${esc(t.consent.settings)}</button></p>` : ''}
   </footer>
+
+  ${site.ga_measurement_id ? `<div class="consent" id="consent" role="region" aria-label="${esc(t.consent.label)}" hidden>
+    <p>${esc(t.consent.text)}</p>
+    <div class="consent__btns">
+      <button type="button" class="btn" id="consent-accept">${esc(t.consent.accept)}</button>
+      <button type="button" class="btn btn--ghost" id="consent-decline">${esc(t.consent.decline)}</button>
+    </div>
+  </div>` : ''}
 
   <dialog id="lightbox" class="lb" aria-label="${esc(t.gallery)}">
     <button type="button" class="lb__close" aria-label="${esc(t.lightbox.close)}">&times;</button>
@@ -446,6 +455,55 @@ function renderPage(lang) {
       });
     })();
   </script>
+  ${site.ga_measurement_id ? `<script>
+    // Google Analytics se učitava tek nakon pristanka posjetitelja.
+    (function () {
+      var gaId = ${js(site.ga_measurement_id)};
+      var KEY = 'lpr_consent';
+      var box = document.getElementById('consent');
+      var loaded = false;
+      var read = function () { try { return localStorage.getItem(KEY); } catch (e) { return null; } };
+      var write = function (v) { try { localStorage.setItem(KEY, v); } catch (e) {} };
+      var clearGa = function () {
+        try {
+          document.cookie.split(';').forEach(function (c) {
+            var n = c.split('=')[0].trim();
+            if (n === '_ga' || n.indexOf('_ga_') === 0) {
+              document.cookie = n + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+              document.cookie = n + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=' + location.hostname;
+              document.cookie = n + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.' + location.hostname.replace(/^www\\./, '');
+            }
+          });
+        } catch (e) {}
+      };
+      var loadGa = function () {
+        if (loaded) return;
+        loaded = true;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'granted' });
+        gtag('js', new Date());
+        gtag('config', gaId);
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaId);
+        document.head.appendChild(s);
+      };
+      var show = function () { if (box) box.hidden = false; };
+      var hide = function () { if (box) box.hidden = true; };
+      var v = read();
+      if (v === 'granted') loadGa(); else if (v !== 'denied') show();
+      var acc = document.getElementById('consent-accept');
+      var dec = document.getElementById('consent-decline');
+      if (acc) acc.addEventListener('click', function () { write('granted'); hide(); loadGa(); });
+      if (dec) dec.addEventListener('click', function () {
+        write('denied'); hide(); clearGa();
+        if (loaded) { try { window['ga-disable-' + gaId] = true; } catch (e) {} }
+      });
+      var st = document.getElementById('cookie-settings');
+      if (st) st.addEventListener('click', show);
+    })();
+  </script>` : ''}
 </body>
 </html>
 `;

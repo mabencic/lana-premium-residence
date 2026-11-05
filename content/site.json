@@ -56,5 +56,6 @@
       "distance_note": "Circa 6 km dal centro di Parenzo"
     }
   },
-  "turnstile_sitekey": "0x4AAAAAAFb6WsAl3rmscuF5"
+  "turnstile_sitekey": "0x4AAAAAAFb6WsAl3rmscuF5",
+  "ga_measurement_id": "G-R7RYK2PWE7"
 }
