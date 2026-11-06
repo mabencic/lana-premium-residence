@@ -131,4 +131,45 @@ const ui = {
   },
 };
 
+// Dodatni tekstovi: izbornik na mobitelu, podnožje, karta, privatnost, broj gostiju.
+const extra = {
+  hr: {
+    menu: 'Izbornik', menuClose: 'Zatvori izbornik',
+    privacy: 'Privatnost', privacyPath: 'privatnost',
+    whatsapp: 'WhatsApp', call: 'Nazovi',
+    amenityCta: { title: 'Imate pitanje?', text: 'Pišite nam, rado ćemo odgovoriti.', link: 'Pošalji upit' },
+    map: { text: 'Karta se učitava s Google karata. Tom prilikom Google dobiva vašu IP adresu.', load: 'Prikaži kartu' },
+    guestsLess: 'Manje gostiju', guestsMore: 'Više gostiju',
+    back: 'Natrag na početnu',
+  },
+  en: {
+    menu: 'Menu', menuClose: 'Close menu',
+    privacy: 'Privacy', privacyPath: 'privacy',
+    whatsapp: 'WhatsApp', call: 'Call',
+    amenityCta: { title: 'Have a question?', text: "Write to us, we'll be happy to help.", link: 'Send an enquiry' },
+    map: { text: 'The map is loaded from Google Maps, which means Google receives your IP address.', load: 'Show map' },
+    guestsLess: 'Fewer guests', guestsMore: 'More guests',
+    back: 'Back to the home page',
+  },
+  de: {
+    menu: 'Menü', menuClose: 'Menü schließen',
+    privacy: 'Datenschutz', privacyPath: 'datenschutz',
+    whatsapp: 'WhatsApp', call: 'Anrufen',
+    amenityCta: { title: 'Haben Sie eine Frage?', text: 'Schreiben Sie uns, wir helfen gerne weiter.', link: 'Anfrage senden' },
+    map: { text: 'Die Karte wird von Google Maps geladen. Dabei erhält Google Ihre IP-Adresse.', load: 'Karte anzeigen' },
+    guestsLess: 'Weniger Gäste', guestsMore: 'Mehr Gäste',
+    back: 'Zurück zur Startseite',
+  },
+  it: {
+    menu: 'Menu', menuClose: 'Chiudi il menu',
+    privacy: 'Privacy', privacyPath: 'privacy',
+    whatsapp: 'WhatsApp', call: 'Chiama',
+    amenityCta: { title: 'Avete una domanda?', text: 'Scriveteci, saremo lieti di aiutarvi.', link: 'Invia una richiesta' },
+    map: { text: "La mappa viene caricata da Google Maps: in questo modo Google riceve il vostro indirizzo IP.", load: 'Mostra la mappa' },
+    guestsLess: 'Meno ospiti', guestsMore: 'Più ospiti',
+    back: 'Torna alla pagina iniziale',
+  },
+};
+for (const l of Object.keys(extra)) Object.assign(ui[l], extra[l]);
+
 module.exports = { defaultLang, languages, ui };

@@ -2,6 +2,7 @@
   "items": [
     {
       "label": "Bazen",
+      "icon": "pool",
       "hr": {
         "title": "Bazen",
         "text": "Vanjski bazen s ležaljkama i suncobranima, otvoren sezonski."
@@ -21,6 +22,7 @@
     },
     {
       "label": "Bar uz bazen",
+      "icon": "bar",
       "hr": {
         "title": "Bar uz bazen",
         "text": "Piće i lagani zalogaji bez napuštanja kompleksa."
@@ -40,6 +42,7 @@
     },
     {
       "label": "Teniski tereni",
+      "icon": "tennis",
       "hr": {
         "title": "Teniski tereni",
         "text": "Tereni u sklopu kompleksa za goste."
@@ -59,6 +62,7 @@
     },
     {
       "label": "Besplatan parking",
+      "icon": "parking",
       "hr": {
         "title": "Besplatan parking",
         "text": "Privatni parking uz apartmane, bez naknade."
@@ -78,6 +82,7 @@
     },
     {
       "label": "Wi-Fi",
+      "icon": "wifi",
       "hr": {
         "title": "Wi-Fi",
         "text": "Besplatan bežični internet u apartmanima."
@@ -97,6 +102,7 @@
     },
     {
       "label": "Klima i kuhinja",
+      "icon": "climate",
       "hr": {
         "title": "Klima i kuhinja",
         "text": "Svaki apartman ima klimu i potpuno opremljenu kuhinju."
@@ -116,6 +122,7 @@
     },
     {
       "label": "Minimarket",
+      "icon": "shop",
       "hr": {
         "title": "Minimarket",
         "text": "Osnovne namirnice na dohvat ruke."

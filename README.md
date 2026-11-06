@@ -4,7 +4,7 @@ Statična višejezična stranica. Sadržaj (tekstovi, fotografije, kontakt) nala
 
 ## Jezici
 
-Hrvatski je glavni jezik i nalazi se na početnoj adresi (`/`). Ostali jezici su na `/en/` (engleski), `/de/` (njemački) i `/it/` (talijanski), a u zaglavlju je izbornik za promjenu jezika. Na početnoj adresi (`/`) posjetitelj se automatski preusmjerava na svoj jezik (datoteka `functions/index.js`):
+Hrvatski je glavni jezik i nalazi se na početnoj adresi (`/`). Ostali jezici su na `/en/` (engleski), `/de/` (njemački) i `/it/` (talijanski), a u zaglavlju je izbornik za promjenu jezika (na mobitelu se nalazi u izborniku ☰, a oznaka trenutnog jezika vidi se na samom gumbu). Na početnoj adresi (`/`) posjetitelj se automatski preusmjerava na svoj jezik (datoteka `functions/index.js`):
 
 1. ako je jezik već ručno odabrao u izborniku, pamti se taj odabir,
 2. inače se gleda jezik preglednika (hrvatski, engleski, njemački, talijanski),
@@ -21,8 +21,10 @@ Tekstovi sučelja (izbornik, gumbi, obrazac) nalaze se u datoteci `i18n.js`.
 
 ## Što je u mapi
 
-- `content/` tekstovi i podaci (JSON datoteke)
-- `images/` slike (privremene su SVG slike-zamjene)
+- `content/` tekstovi i podaci (JSON datoteke), uključujući `privacy.json` (Pravila privatnosti na 4 jezika)
+- `images/` fotografije (JPG), a u `images/w/` njihove manje WebP verzije za brže učitavanje
+- `slike.py` izrađuje WebP verzije: nakon dodavanja ili zamjene fotografije pokrenite `python3 slike.py` (treba Pillow). Ako WebP verzija nema, stranica koristi izvorni JPG.
+- `fonts/` i `css/fonts.css` fontovi (poslužuju se sa same stranice, bez Google Fonts)
 - `css/style.css` izgled
 - `build.js` pretvara sadržaj u gotovu stranicu (mapa `dist/`), po jedna stranica za svaki jezik
 - `i18n.js` popis jezika i tekstovi sučelja
@@ -53,10 +55,16 @@ E-mail adresa nije u kodu stranice. Prikazuje se tek nakon što Cloudflare Turns
 ### 4. Vlastita domena
 Cloudflare, projekt, Custom domains, Set up a domain. Nakon toga upišite novu adresu u `content/site.json`, polje `url`. Time se uključuju sitemap i canonical oznake za Google.
 
+## Privatnost
+
+- Stranica „Pravila privatnosti” nalazi se na `/privatnost/`, `/en/privacy/`, `/de/datenschutz/` i `/it/privacy/`, s poveznicom u podnožju.
+- U `content/site.json` upišite polje `operator`: puno ime vlasnika ili naziv obrta/tvrtke i OIB. Dok je prazno, kao voditelj obrade navodi se naziv objekta, a izgradnja javlja upozorenje.
+- Fontovi su na samoj stranici, Google karta se učitava tek na klik („Prikaži kartu”), Cloudflare Turnstile tek kad posjetitelj zatraži e-mail ili počne ispunjavati obrazac, a Google Analytics samo uz pristanak.
+
 ## Što još treba zamijeniti prije objave
 
-- [ ] Telefon, e-mail i WhatsApp broj (sada su privremeni)
-- [ ] Fotografije: glavna, apartmana i galerija (sada su SVG slike-zamjene)
+- [ ] Voditelj obrade (`operator`) u `content/site.json`
+- [ ] Recenzije gostiju, okvirne cijene i udaljenosti (plaža, trgovina, Poreč, zračna luka)
 - [ ] Provjeriti tekstove: broj osoba, sadržaje, česta pitanja (pravila za ljubimce, doručak, vrijeme prijave i odjave)
 - [ ] Poveznice na Instagram, Facebook i eventualno online rezervaciju
 - [ ] Otvoriti Google Business Profile i dodati poveznicu na stranicu

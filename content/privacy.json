@@ -1,0 +1,59 @@
+{
+  "updated": "2026-11-06",
+  "hr": {
+    "title": "Pravila privatnosti",
+    "updated_label": "Zadnja izmjena",
+    "sections": [
+      { "h": "Tko obrađuje podatke", "p": ["Voditelj obrade je {operator}. Za sva pitanja o vašim podacima javite nam se telefonom ({phone}) ili e-mailom navedenim na početnoj stranici."] },
+      { "h": "Upit putem obrasca", "p": ["Obrazac na stranici ne šalje podatke na naš poslužitelj. Nakon klika otvara se vaša aplikacija za e-mail ili WhatsApp s pripremljenom porukom, a podatke (ime, datume, broj gostiju, poruku) primamo tek kad je sami pošaljete.", "Te podatke koristimo samo da bismo odgovorili na upit i, ako rezervirate, za vaš boravak. Čuvamo ih koliko je potrebno za to i koliko propisi nalažu. Kod WhatsAppa poruku prenosi WhatsApp Ireland Limited prema svojim pravilima."] },
+      { "h": "Prikaz e-mail adrese (Cloudflare Turnstile)", "p": ["Kako bismo e-mail adresu zaštitili od botova, ona se prikazuje tek nakon provjere Cloudflare Turnstile. Provjera se pokreće tek kad kliknete „Prikaži e-mail adresu” ili počnete ispunjavati obrazac. Pri tome Cloudflare obrađuje tehničke podatke o pregledniku i IP adresu kako bi razlikovao osobe od botova."] },
+      { "h": "Smještaj stranice (Cloudflare)", "p": ["Stranica je smještena kod Cloudflare, Inc. Pri svakom posjetu poslužitelj tehnički obrađuje IP adresu i podatke o pregledniku kako bi stranicu isporučio i zaštitio od napada."] },
+      { "h": "Google Analytics (samo uz pristanak)", "p": ["Ako u baneru odaberete „Prihvaćam”, uključuje se Google Analytics (Google Ireland Limited) koji mjeri posjećenost stranice i sprema kolačiće _ga (do 2 godine). Bez pristanka se ne učitava. Odluku možete bilo kada promijeniti preko poveznice „Postavke kolačića” u podnožju."] },
+      { "h": "Karta (Google karte)", "p": ["Karta se učitava tek kad kliknete „Prikaži kartu”. Tada Google dobiva vašu IP adresu i tehničke podatke o pregledniku."] },
+      { "h": "Podaci spremljeni u pregledniku", "p": ["Vaš odabir za kolačiće pamti se u pregledniku (lokalna pohrana), a ručno odabrani jezik u kolačiću „lang” (1 godina). Ti podaci ne šalju se nikome. Fontovi i ostali sadržaji stranice učitavaju se s naše stranice, a ne od trećih strana."] },
+      { "h": "Vaša prava", "p": ["Imate pravo na pristup svojim podacima, ispravak, brisanje, ograničenje obrade, prenosivost i prigovor, te pravo povući privolu u bilo kojem trenutku. Pritužbu možete podnijeti Agenciji za zaštitu osobnih podataka (azop.hr)."] }
+    ]
+  },
+  "en": {
+    "title": "Privacy policy",
+    "updated_label": "Last updated",
+    "sections": [
+      { "h": "Who processes your data", "p": ["The controller is {operator}. For any questions about your data, contact us by phone ({phone}) or by the email address shown on the home page."] },
+      { "h": "Enquiries via the form", "p": ["The form on this site does not send data to our server. When you click, your email app or WhatsApp opens with a prepared message, and we receive the data (name, dates, number of guests, message) only when you send it yourself.", "We use this data only to reply to your enquiry and, if you book, for your stay. We keep it for as long as necessary for that purpose and as required by law. With WhatsApp, the message is transmitted by WhatsApp Ireland Limited under its own terms."] },
+      { "h": "Showing the email address (Cloudflare Turnstile)", "p": ["To protect our email address from bots, it is shown only after a Cloudflare Turnstile check. The check starts only when you click “Show email address” or start filling in the form. Cloudflare processes technical browser data and your IP address to tell people from bots."] },
+      { "h": "Hosting (Cloudflare)", "p": ["The site is hosted by Cloudflare, Inc. On every visit, the server technically processes your IP address and browser data to deliver the site and protect it from attacks."] },
+      { "h": "Google Analytics (only with consent)", "p": ["If you choose “Accept” in the banner, Google Analytics (Google Ireland Limited) is switched on to measure visits and stores _ga cookies (up to 2 years). Without consent it is not loaded. You can change your choice at any time via “Cookie settings” in the footer."] },
+      { "h": "Map (Google Maps)", "p": ["The map is loaded only when you click “Show map”. Google then receives your IP address and technical browser data."] },
+      { "h": "Data stored in your browser", "p": ["Your cookie choice is remembered in your browser (local storage) and a manually selected language in the “lang” cookie (1 year). This data is not sent to anyone. Fonts and other content are served from our own site, not from third parties."] },
+      { "h": "Your rights", "p": ["You have the right to access, rectify and erase your data, to restrict processing, to data portability and to object, and to withdraw consent at any time. You can lodge a complaint with the Croatian Personal Data Protection Agency (azop.hr) or the authority in your country."] }
+    ]
+  },
+  "de": {
+    "title": "Datenschutzerklärung",
+    "updated_label": "Stand",
+    "sections": [
+      { "h": "Verantwortlicher", "p": ["Verantwortlich ist {operator}. Bei Fragen zu Ihren Daten erreichen Sie uns telefonisch ({phone}) oder über die auf der Startseite angezeigte E-Mail-Adresse."] },
+      { "h": "Anfragen über das Formular", "p": ["Das Formular sendet keine Daten an unseren Server. Nach dem Klick öffnet sich Ihre E-Mail-App oder WhatsApp mit einer vorbereiteten Nachricht. Die Daten (Name, Reisedaten, Zahl der Gäste, Nachricht) erhalten wir erst, wenn Sie die Nachricht selbst absenden.", "Wir verwenden diese Daten nur zur Beantwortung Ihrer Anfrage und, falls Sie buchen, für Ihren Aufenthalt. Wir speichern sie so lange, wie es dafür erforderlich und gesetzlich vorgeschrieben ist. Bei WhatsApp wird die Nachricht von WhatsApp Ireland Limited nach deren Bedingungen übermittelt."] },
+      { "h": "Anzeige der E-Mail-Adresse (Cloudflare Turnstile)", "p": ["Zum Schutz vor Bots wird unsere E-Mail-Adresse erst nach einer Prüfung durch Cloudflare Turnstile angezeigt. Die Prüfung startet erst, wenn Sie auf „E-Mail-Adresse anzeigen“ klicken oder mit dem Ausfüllen des Formulars beginnen. Dabei verarbeitet Cloudflare technische Browserdaten und Ihre IP-Adresse, um Menschen von Bots zu unterscheiden."] },
+      { "h": "Hosting (Cloudflare)", "p": ["Die Website wird bei Cloudflare, Inc. gehostet. Bei jedem Besuch verarbeitet der Server technisch Ihre IP-Adresse und Browserdaten, um die Seite auszuliefern und vor Angriffen zu schützen."] },
+      { "h": "Google Analytics (nur mit Einwilligung)", "p": ["Wenn Sie im Banner „Akzeptieren“ wählen, wird Google Analytics (Google Ireland Limited) aktiviert, das die Besuche misst und _ga-Cookies (bis zu 2 Jahre) speichert. Ohne Einwilligung wird es nicht geladen. Sie können Ihre Wahl jederzeit über „Cookie-Einstellungen“ in der Fußzeile ändern."] },
+      { "h": "Karte (Google Maps)", "p": ["Die Karte wird erst geladen, wenn Sie auf „Karte anzeigen“ klicken. Dann erhält Google Ihre IP-Adresse und technische Browserdaten."] },
+      { "h": "Im Browser gespeicherte Daten", "p": ["Ihre Cookie-Entscheidung wird im Browser (lokaler Speicher) gespeichert, eine manuell gewählte Sprache im Cookie „lang“ (1 Jahr). Diese Daten werden an niemanden übermittelt. Schriftarten und andere Inhalte werden von unserer eigenen Website geladen, nicht von Dritten."] },
+      { "h": "Ihre Rechte", "p": ["Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie das Recht, eine Einwilligung jederzeit zu widerrufen. Sie können sich bei der kroatischen Datenschutzbehörde (azop.hr) oder der Aufsichtsbehörde Ihres Landes beschweren."] }
+    ]
+  },
+  "it": {
+    "title": "Informativa sulla privacy",
+    "updated_label": "Ultimo aggiornamento",
+    "sections": [
+      { "h": "Titolare del trattamento", "p": ["Il titolare del trattamento è {operator}. Per qualsiasi domanda sui vostri dati contattateci per telefono ({phone}) o all'indirizzo e-mail indicato nella pagina iniziale."] },
+      { "h": "Richieste tramite il modulo", "p": ["Il modulo del sito non invia dati al nostro server. Dopo il clic si apre la vostra app di posta o WhatsApp con un messaggio già pronto, e riceviamo i dati (nome, date, numero di ospiti, messaggio) solo quando lo inviate voi.", "Usiamo questi dati solo per rispondere alla richiesta e, se prenotate, per il vostro soggiorno. Li conserviamo per il tempo necessario e previsto dalla legge. Con WhatsApp il messaggio è trasmesso da WhatsApp Ireland Limited secondo le proprie condizioni."] },
+      { "h": "Visualizzazione dell'indirizzo e-mail (Cloudflare Turnstile)", "p": ["Per proteggerlo dai bot, il nostro indirizzo e-mail viene mostrato solo dopo una verifica Cloudflare Turnstile. La verifica parte solo quando cliccate su “Mostra l'indirizzo e-mail” o iniziate a compilare il modulo. Cloudflare tratta dati tecnici del browser e l'indirizzo IP per distinguere le persone dai bot."] },
+      { "h": "Hosting (Cloudflare)", "p": ["Il sito è ospitato da Cloudflare, Inc. A ogni visita il server tratta tecnicamente l'indirizzo IP e i dati del browser per fornire il sito e proteggerlo dagli attacchi."] },
+      { "h": "Google Analytics (solo con consenso)", "p": ["Se nel banner scegliete “Accetto”, si attiva Google Analytics (Google Ireland Limited), che misura le visite e salva i cookie _ga (fino a 2 anni). Senza consenso non viene caricato. Potete cambiare la scelta in qualsiasi momento tramite “Impostazioni dei cookie” in fondo alla pagina."] },
+      { "h": "Mappa (Google Maps)", "p": ["La mappa viene caricata solo quando cliccate su “Mostra la mappa”. In quel momento Google riceve il vostro indirizzo IP e dati tecnici del browser."] },
+      { "h": "Dati salvati nel browser", "p": ["La vostra scelta sui cookie viene ricordata nel browser (memoria locale) e la lingua scelta manualmente nel cookie “lang” (1 anno). Questi dati non vengono inviati a nessuno. I caratteri e gli altri contenuti sono forniti dal nostro sito, non da terzi."] },
+      { "h": "I vostri diritti", "p": ["Avete il diritto di accesso, rettifica, cancellazione, limitazione del trattamento, portabilità dei dati e opposizione, nonché di revocare il consenso in qualsiasi momento. Potete presentare reclamo all'Agenzia croata per la protezione dei dati personali (azop.hr) o all'autorità del vostro paese."] }
+    ]
+  }
+}
